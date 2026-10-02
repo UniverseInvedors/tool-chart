@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chart Builder — Free Online Chart Maker | Bar, Line, Pie Charts | Universe Tools</title>
+  <meta name="description" content="Create beautiful bar, line, pie, doughnut and radar charts online free. Paste your data, customise colours and labels, download as PNG. No sign-up required." />
+  <meta name="keywords" content="online chart maker, free chart builder, bar chart creator, pie chart generator, line graph maker, data visualisation tool, chart.js online" />
+  <link rel="canonical" href="https://chart.universeinvedors.tech/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Chart Builder — Free Online Bar, Line & Pie Chart Maker" />
+  <meta property="og:description" content="Create interactive charts from your data in seconds. Bar, line, pie, doughnut, radar. Download as PNG. Free." />
+  <meta property="og:url" content="https://chart.universeinvedors.tech/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0d1117" />
+  <link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Chart Builder","description":"Create interactive bar, line, pie and radar charts online for free. Powered by Chart.js.","url":"https://chart.universeinvedors.tech","applicationCategory":"DeveloperApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <meta name="google-adsense-account" content="ca-pub-8759032363251002" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8759032363251002" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0d1117;--surface:#161b22;--card:#141b28;--border:rgba(255,255,255,.08);--text:#e6edf3;--muted:#8b949e;--cyan:#06b6d4;--font:'Inter',system-ui,sans-serif}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100dvh;display:flex;flex-direction:column}
+    .topbar{display:flex;align-items:center;gap:.75rem;padding:.6rem 1rem;border-bottom:1px solid var(--border);background:rgba(13,17,23,.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;flex-wrap:wrap}
+    .logo{font-size:.85rem;font-weight:700;white-space:nowrap}
+    .btn{padding:.35rem .85rem;border-radius:7px;font-size:.78rem;font-weight:600;border:none;cursor:pointer;transition:all .15s}
+    .btn-dl{background:var(--cyan);color:#000}
+    .btn-dl:hover{background:#0891b2}
+    .main{display:flex;flex:1;gap:0}
+    .controls{width:280px;shrink:0;padding:1.25rem;border-right:1px solid var(--border);overflow-y:auto;display:flex;flex-direction:column;gap:1rem}
+    .chart-area{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem}
+    .chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;width:100%;max-width:640px}
+    label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+    input[type=text],input[type=color],select,textarea{width:100%;padding:.55rem .75rem;border-radius:8px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.85rem;font-family:inherit;outline:none}
+    input[type=color]{padding:.3rem;height:38px;cursor:pointer}
+    input:focus,select:focus,textarea:focus{border-color:var(--cyan)}
+    textarea{resize:vertical;min-height:70px;font-family:'JetBrains Mono',monospace;font-size:.8rem}
+    .type-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.3rem}
+    .type-btn{padding:.4rem 0;border-radius:7px;font-size:.7rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--muted);text-align:center;transition:all .15s}
+    .type-btn.active{background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.4);color:var(--cyan)}
+    .section-title{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:.4rem;border-bottom:1px solid var(--border)}
+    .ad-slot{padding:.5rem;text-align:center;border-top:1px solid var(--border)}
+    @media(max-width:768px){
+      .main{flex-direction:column}
+      .controls{width:100%;border-right:none;border-bottom:1px solid var(--border)}
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo">📊 <a href="https://universeinvedors.tech/tools" style="color:inherit;text-decoration:none">Universe Tools</a> / Chart Builder</div>
+  <div style="flex:1"></div>
+  <button class="btn btn-dl" onclick="downloadChart()">↓ Download PNG</button>
+</header>
+
+<main class="main">
+  <aside class="controls">
+    <div>
+      <p class="section-title">Chart Type</p>
+      <div class="type-grid" style="margin-top:.5rem">
+        <div class="type-btn active" onclick="setType('bar',this)">Bar</div>
+        <div class="type-btn" onclick="setType('line',this)">Line</div>
+        <div class="type-btn" onclick="setType('pie',this)">Pie</div>
+        <div class="type-btn" onclick="setType('doughnut',this)">Ring</div>
+        <div class="type-btn" onclick="setType('radar',this)">Radar</div>
+      </div>
+    </div>
+    <div><label>Chart Title</label><input type="text" id="title" value="Monthly Sales" oninput="update()"></div>
+    <div><label>Labels (comma-separated)</label><textarea id="labels" oninput="update()">Jan, Feb, Mar, Apr, May, Jun</textarea></div>
+    <div><label>Dataset 1 Name</label><input type="text" id="ds1name" value="Revenue ($k)" oninput="update()"></div>
+    <div><label>Dataset 1 Values (comma-separated)</label><textarea id="ds1" oninput="update()">42, 78, 55, 91, 63, 84</textarea></div>
+    <div><label>Dataset 1 Colour</label><input type="color" id="ds1color" value="#3b82f6" oninput="update()"></div>
+    <div id="ds2section">
+      <label>Dataset 2 Name (optional)</label><input type="text" id="ds2name" value="Target ($k)" oninput="update()" style="margin-bottom:.4rem">
+      <label>Dataset 2 Values</label><textarea id="ds2" oninput="update()">50, 65, 60, 80, 75, 90</textarea>
+      <div style="margin-top:.4rem"><label>Dataset 2 Colour</label><input type="color" id="ds2color" value="#06b6d4" oninput="update()"></div>
+    </div>
+  </aside>
+  <div class="chart-area">
+    <div class="chart-wrap"><canvas id="chart"></canvas></div>
+  </div>
+</main>
+
+<div class="ad-slot" aria-label="Advertisement">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8759032363251002" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<script>
+const COLORS = ['#3b82f6','#06b6d4','#8b5cf6','#10b981','#f59e0b','#ec4899','#f97316','#ef4444']
+let chartType = 'bar'
+let chartInst = null
+
+function parse(str) { return str.split(',').map(s => s.trim()).filter(Boolean) }
+function parseNums(str) { return str.split(',').map(s => parseFloat(s.trim())).filter(n => !isNaN(n)) }
+
+function setType(t, btn) {
+  chartType = t
+  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'))
+  btn.classList.add('active')
+  const isPolar = t === 'pie' || t === 'doughnut' || t === 'radar'
+  document.getElementById('ds2section').style.display = isPolar ? 'none' : ''
+  update()
+}
+
+function update() {
+  const labels = parse(document.getElementById('labels').value)
+  const d1 = parseNums(document.getElementById('ds1').value)
+  const d2 = parseNums(document.getElementById('ds2').value)
+  const title = document.getElementById('title').value
+  const c1 = document.getElementById('ds1color').value
+  const c2 = document.getElementById('ds2color').value
+  const isPolar = chartType === 'pie' || chartType === 'doughnut' || chartType === 'radar'
+
+  const datasets = [{
+    label: document.getElementById('ds1name').value,
+    data: d1,
+    backgroundColor: isPolar ? COLORS.slice(0, labels.length).map(c => c + 'bb') : c1 + 'cc',
+    borderColor: isPolar ? COLORS.slice(0, labels.length) : c1,
+    borderWidth: 2, fill: chartType === 'line', tension: 0.4, pointRadius: chartType === 'line' ? 4 : 3,
+  }]
+
+  if (!isPolar && d2.length) {
+    datasets.push({
+      label: document.getElementById('ds2name').value,
+      data: d2, backgroundColor: c2 + 'cc', borderColor: c2,
+      borderWidth: 2, fill: false, tension: 0.4, pointRadius: 4,
+    })
+  }
+
+  if (chartInst) chartInst.destroy()
+  chartInst = new Chart(document.getElementById('chart'), {
+    type: chartType,
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { labels: { color: '#e6edf3', font: { size: 12 } } },
+        title: { display: !!title, text: title, color: '#e6edf3', font: { size: 15, weight: 'bold' } },
+      },
+      scales: isPolar ? {} : {
+        x: { ticks: { color: '#8b949e' }, grid: { color: 'rgba(255,255,255,.05)' } },
+        y: { ticks: { color: '#8b949e' }, grid: { color: 'rgba(255,255,255,.07)' } },
+      },
+    },
+  })
+}
+
+function downloadChart() {
+  const a = document.createElement('a')
+  a.download = 'chart.png'
+  a.href = document.getElementById('chart').toDataURL('image/png')
+  a.click()
+}
+
+update()
+</script>
+</body>
+</html>
