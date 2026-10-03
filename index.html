@@ -1,248 +1,352 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chart Builder — Free Online Bar, Line, Pie and Radar Chart Maker | Universe Invedors Tools</title>
-  <meta name="description" content="Create interactive bar, line, pie, doughnut and radar charts from your data free online. Paste data, customise colours, download as PNG. Chart.js powered. No account needed." />
-  <meta name="keywords" content="free chart maker online, bar chart creator free, pie chart generator online, line graph maker free, online chart builder no signup, data visualization tool free" />
-  <link rel="canonical" href="https://chart.universeinvedors.tech/" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Chart Builder — Free Online Bar, Line & Pie Chart Maker" />
-  <meta property="og:description" content="Create interactive charts from your data in seconds. Bar, line, pie, doughnut, radar. Download as PNG. Free." />
-  <meta property="og:url" content="https://chart.universeinvedors.tech/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#0d1117" />
-  <link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any" />
-  <script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Chart Builder",
-    "url": "https://chart.universeinvedors.tech",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Web",
-    "browserRequirements": "Requires JavaScript",
-    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-    "publisher": {
-      "@type": "Organization",
-      "name": "Universe Invedors",
-      "url": "https://universeinvedors.tech",
-      "logo": "https://universeinvedors.tech/logo.png",
-      "sameAs": [
-        "https://linkedin.com/company/universe-invedors",
-        "https://github.com/UniverseInvedors"
-      ]
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Universe Invedors", "item": "https://universeinvedors.tech"},
-      {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://universeinvedors.tech/tools"},
-      {"@type": "ListItem", "position": 3, "name": "Chart Builder", "item": "https://chart.universeinvedors.tech"}
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Chart Builder",
-    "url": "https://chart.universeinvedors.tech",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "Universe Invedors Tools",
-      "url": "https://universeinvedors.tech"
-    }
-  }
-]
-</script>
-  <meta name="google-adsense-account" content="ca-pub-8759032363251002" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8759032363251002" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0d1117;--surface:#161b22;--card:#141b28;--border:rgba(255,255,255,.08);--text:#e6edf3;--muted:#8b949e;--cyan:#06b6d4;--font:'Inter',system-ui,sans-serif}
-    body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100dvh;display:flex;flex-direction:column}
-    .topbar{display:flex;align-items:center;gap:.75rem;padding:.6rem 1rem;border-bottom:1px solid var(--border);background:rgba(13,17,23,.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;flex-wrap:wrap}
-    .logo{font-size:.85rem;font-weight:700;white-space:nowrap}
-    .btn{padding:.35rem .85rem;border-radius:7px;font-size:.78rem;font-weight:600;border:none;cursor:pointer;transition:all .15s}
-    .btn-dl{background:var(--cyan);color:#000}
-    .btn-dl:hover{background:#0891b2}
-    .main{display:flex;flex:1;gap:0}
-    .controls{width:280px;shrink:0;padding:1.25rem;border-right:1px solid var(--border);overflow-y:auto;display:flex;flex-direction:column;gap:1rem}
-    .chart-area{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem}
-    .chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;width:100%;max-width:640px}
-    label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
-    input[type=text],input[type=color],select,textarea{width:100%;padding:.55rem .75rem;border-radius:8px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.85rem;font-family:inherit;outline:none}
-    input[type=color]{padding:.3rem;height:38px;cursor:pointer}
-    input:focus,select:focus,textarea:focus{border-color:var(--cyan)}
-    textarea{resize:vertical;min-height:70px;font-family:'JetBrains Mono',monospace;font-size:.8rem}
-    .type-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.3rem}
-    .type-btn{padding:.4rem 0;border-radius:7px;font-size:.7rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--muted);text-align:center;transition:all .15s}
-    .type-btn.active{background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.4);color:var(--cyan)}
-    .section-title{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:.4rem;border-bottom:1px solid var(--border)}
-    .ad-slot{padding:.5rem;text-align:center;border-top:1px solid var(--border)}
-    @media(max-width:768px){
-      .main{flex-direction:column}
-      .controls{width:100%;border-right:none;border-bottom:1px solid var(--border)}
-    }
-  </style>  <meta name="author" content="Universe Invedors" />
-  <meta name="publisher" content="Universe Invedors" />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <link rel="sitemap" type="application/xml" href="https://chart.universeinvedors.tech/sitemap.xml" />
-
-  <!-- Open Graph image (required for Google + social sharing previews) -->
-  <meta property="og:image" content="https://universeinvedors.tech/og-image.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Chart Builder — Free Online Bar, Line, Pie and Radar Chart Maker" />
-  <meta property="og:site_name" content="Universe Invedors Tools" />
-  <meta property="og:locale" content="en_US" />
-
-  <!-- Twitter image -->
-  <meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg" />
-  <meta name="twitter:site" content="@universeinvedors" />
-  <meta name="twitter:creator" content="@universeinvedors" />
-  <meta name="twitter:label1" content="Category" />
-  <meta name="twitter:data1" content="Free Developer Tool" />
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Chart Builder — Free Online Bar, Line, Pie and Radar Chart Maker | Universe Invedors Tools</title>
+<meta name="description" content="Create interactive bar, line, pie, doughnut, radar and scatter charts online free. Powered by Chart.js and Apache ECharts. Download PNG. No sign-up."/>
+<meta name="keywords" content="free chart maker online,bar chart creator,pie chart generator,line graph maker,Apache ECharts online,Chart.js online,data visualization free"/>
+<link rel="canonical" href="https://chart.universeinvedors.tech/"/>
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+<meta name="author" content="Universe Invedors"/>
+<meta property="og:title" content="Chart Builder — Free Online Bar, Line, Pie Chart Maker"/>
+<meta property="og:description" content="Create interactive charts from your data. Chart.js and ECharts engines. Download PNG. Free."/>
+<meta property="og:url" content="https://chart.universeinvedors.tech/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/>
+<meta property="og:site_name" content="Universe Invedors Tools"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg"/>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+<link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any"/>
+<meta name="theme-color" content="#090c13"/>
+<meta name="google-adsense-account" content="ca-pub-8759032363251002"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8759032363251002" crossorigin="anonymous"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Chart Builder","url":"https://chart.universeinvedors.tech","applicationCategory":"DeveloperApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Universe Invedors","url":"https://universeinvedors.tech"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Universe Invedors","item":"https://universeinvedors.tech"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://universeinvedors.tech/tools"},{"@type":"ListItem","position":3,"name":"Chart Builder","item":"https://chart.universeinvedors.tech"}]}]</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#090c13;--surf:#0f1420;--elev:#141b28;--card:#1a2235;--inp:#111827;
+  --t1:#f0f4ff;--t2:#a8b5cc;--t3:#64748b;--t4:#3d4f6e;
+  --acc:#06b6d4;--acc-h:#22d3ee;--acc-glow:rgba(6,182,212,.25);
+  --green:#10b981;--violet:#8b5cf6;--blue:#3b82f6;--orange:#f97316;
+  --border:rgba(255,255,255,.07);--bh:rgba(255,255,255,.14);
+  --font:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --mono:'JetBrains Mono','Fira Code',Consolas,monospace;
+  --r:10px;--th:52px;--sw:260px;--tr:180ms cubic-bezier(.4,0,.2,1);
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);height:100dvh;display:flex;flex-direction:column;overflow:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
+.tb{height:var(--th);background:rgba(9,12,19,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;padding:0 .85rem;flex-shrink:0}
+.logo{display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:700;color:var(--t1);text-decoration:none;white-space:nowrap;flex-shrink:0}
+.logo:hover{color:var(--acc-h);text-decoration:none}
+.etabs{display:flex;gap:.1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:3px;overflow-x:auto}
+.et{padding:.26rem .65rem;border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--t3);transition:all var(--tr)}
+.et:hover{background:rgba(255,255,255,.06);color:var(--t2)}
+.et.active{background:var(--acc);color:#000;box-shadow:0 0 10px var(--acc-glow)}
+.sp{flex:1}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.38rem .85rem;border-radius:var(--r);font-size:.75rem;font-weight:600;cursor:pointer;border:none;transition:all var(--tr);white-space:nowrap}
+.bg{background:rgba(255,255,255,.05);color:var(--t2);border:1px solid var(--border)}
+.bg:hover{background:rgba(255,255,255,.09);border-color:var(--bh);color:var(--t1)}
+.bp{background:var(--acc);color:#000}
+.bp:hover{background:var(--acc-h)}
+.bsm{padding:.26rem .6rem;font-size:.68rem}
+/* layout */
+.main{display:flex;flex:1;overflow:hidden}
+.sidebar{width:var(--sw);background:var(--surf);border-right:1px solid var(--border);overflow-y:auto;padding:.65rem .55rem;display:flex;flex-direction:column;gap:.3rem;flex-shrink:0}
+.chart-area{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.ph{display:flex;align-items:center;gap:.5rem;padding:.35rem .85rem;background:var(--surf);border-bottom:1px solid var(--border);font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);flex-shrink:0}
+.pd{width:6px;height:6px;border-radius:50%;background:var(--acc)}
+.phr{margin-left:auto;display:flex;gap:.3rem}
+#chart-container{flex:1;display:flex;align-items:center;justify-content:center;padding:1.5rem;overflow:hidden}
+#chartjs-canvas{display:block;max-width:100%;max-height:100%}
+#echarts-div{width:100%;height:100%;display:none}
+/* field */
+.fl{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--t3);margin-bottom:.28rem;display:block}
+.fi,.fs,.fta{width:100%;padding:.42rem .65rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.8rem;font-family:var(--font);outline:none;transition:border-color var(--tr);margin-bottom:.65rem}
+.fi:focus,.fs:focus,.fta:focus{border-color:rgba(6,182,212,.5)}
+.fta{resize:vertical;min-height:58px;font-family:var(--mono);font-size:.75rem;line-height:1.5}
+/* chart type grid */
+.ctype-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.3rem;margin-bottom:.7rem}
+.ct{padding:.4rem .2rem;border-radius:8px;font-size:.68rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--t3);text-align:center;transition:all var(--tr);display:flex;flex-direction:column;align-items:center;gap:.2rem}
+.ct:hover{background:rgba(6,182,212,.08);border-color:rgba(6,182,212,.25)}
+.ct.active{background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.4);color:var(--acc-h)}
+.ct-icon{font-size:1.1rem}
+/* sec header */
+.sec{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t4);padding:.45rem .3rem .15rem}
+/* dataset row */
+.ds-row{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.6rem;margin-bottom:.4rem}
+.ds-row-header{display:flex;align-items:center;gap:.4rem;margin-bottom:.4rem}
+.ds-title{font-size:.78rem;font-weight:600;color:var(--t1)}
+.ds-color{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);cursor:pointer;padding:.18rem;background:transparent}
+/* statusbar */
+.statusbar{display:flex;align-items:center;gap:.75rem;padding:.25rem .85rem;background:var(--surf);border-top:1px solid var(--border);font-size:.68rem;color:var(--t3);flex-shrink:0}
+.sdot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.seo-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem .75rem;padding:.4rem .85rem;border-top:1px solid var(--border);background:var(--surf);font-size:.67rem;color:var(--t3);flex-shrink:0}
+.seo-footer a{color:var(--t3)}.seo-footer a:hover{color:var(--t2)}
+.sfl{display:flex;flex-wrap:wrap;gap:.2rem .6rem}
+.toasts{position:fixed;bottom:1rem;right:1rem;z-index:999;display:flex;flex-direction:column;gap:.4rem;pointer-events:none}
+.toast{padding:.55rem .9rem;border-radius:var(--r);font-size:.75rem;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--t1);box-shadow:0 8px 32px rgba(0,0,0,.5);animation:tin .22s ease}
+.toast.ok{border-color:rgba(16,185,129,.3);color:var(--green)}.toast.err{border-color:rgba(239,68,68,.3);color:#f87171}
+@keyframes tin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:720px){.sidebar{display:none}}
+</style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="logo">📊 <a href="https://universeinvedors.tech/tools" style="color:inherit;text-decoration:none">Universe Tools</a> / Chart Builder</div>
-  <div style="flex:1"></div>
-  <button class="btn btn-dl" onclick="downloadChart()">↓ Download PNG</button>
+<header class="tb">
+  <a href="https://universeinvedors.tech/tools" class="logo">📊 Universe Tools <span style="color:var(--t4);font-weight:400;font-size:.75rem">/</span> <span style="color:var(--acc-h)">Chart Builder</span></a>
+  <div class="etabs" role="tablist">
+    <button class="et active" onclick="switchEngine('chartjs',this)" role="tab">Chart.js</button>
+    <button class="et" onclick="switchEngine('echarts',this)" role="tab">Apache ECharts</button>
+  </div>
+  <div class="sp"></div>
+  <div style="display:flex;gap:.4rem">
+    <button class="btn bg bsm" onclick="loadPreset()" id="preset-btn">Load Example</button>
+    <button class="btn bg bsm" onclick="copyConfig()">Copy JSON</button>
+    <button class="btn bp" onclick="downloadPNG()">↓ PNG</button>
+  </div>
 </header>
 
-<main class="main">
-  <aside class="controls">
-    <div>
-      <p class="section-title">Chart Type</p>
-      <div class="type-grid" style="margin-top:.5rem">
-        <div class="type-btn active" onclick="setType('bar',this)">Bar</div>
-        <div class="type-btn" onclick="setType('line',this)">Line</div>
-        <div class="type-btn" onclick="setType('pie',this)">Pie</div>
-        <div class="type-btn" onclick="setType('doughnut',this)">Ring</div>
-        <div class="type-btn" onclick="setType('radar',this)">Radar</div>
-      </div>
+<div class="main">
+  <aside class="sidebar">
+    <!-- Chart type -->
+    <div class="sec">Chart Type</div>
+    <div class="ctype-grid">
+      <div class="ct active" onclick="setType('bar',this)"><span class="ct-icon">▊</span>Bar</div>
+      <div class="ct" onclick="setType('line',this)"><span class="ct-icon">╱</span>Line</div>
+      <div class="ct" onclick="setType('pie',this)"><span class="ct-icon">◕</span>Pie</div>
+      <div class="ct" onclick="setType('doughnut',this)"><span class="ct-icon">○</span>Ring</div>
+      <div class="ct" onclick="setType('radar',this)"><span class="ct-icon">⬡</span>Radar</div>
+      <div class="ct" onclick="setType('scatter',this)"><span class="ct-icon">⁘</span>Scatter</div>
+      <div class="ct" onclick="setType('bubble',this)"><span class="ct-icon">◉</span>Bubble</div>
+      <div class="ct" onclick="setType('polarArea',this)"><span class="ct-icon">⊛</span>Polar</div>
     </div>
-    <div><label>Chart Title</label><input type="text" id="title" value="Monthly Sales" oninput="update()"></div>
-    <div><label>Labels (comma-separated)</label><textarea id="labels" oninput="update()">Jan, Feb, Mar, Apr, May, Jun</textarea></div>
-    <div><label>Dataset 1 Name</label><input type="text" id="ds1name" value="Revenue ($k)" oninput="update()"></div>
-    <div><label>Dataset 1 Values (comma-separated)</label><textarea id="ds1" oninput="update()">42, 78, 55, 91, 63, 84</textarea></div>
-    <div><label>Dataset 1 Colour</label><input type="color" id="ds1color" value="#3b82f6" oninput="update()"></div>
-    <div id="ds2section">
-      <label>Dataset 2 Name (optional)</label><input type="text" id="ds2name" value="Target ($k)" oninput="update()" style="margin-bottom:.4rem">
-      <label>Dataset 2 Values</label><textarea id="ds2" oninput="update()">50, 65, 60, 80, 75, 90</textarea>
-      <div style="margin-top:.4rem"><label>Dataset 2 Colour</label><input type="color" id="ds2color" value="#06b6d4" oninput="update()"></div>
+
+    <!-- Chart settings -->
+    <div class="sec">Settings</div>
+    <label class="fl">Chart Title</label>
+    <input class="fi" id="chart-title" value="Monthly Revenue 2024" oninput="updateChart()">
+
+    <label class="fl">Labels (comma separated)</label>
+    <input class="fi" id="labels" value="Jan,Feb,Mar,Apr,May,Jun,Jul" oninput="updateChart()">
+
+    <label class="fl">X-Axis Label</label>
+    <input class="fi" id="x-label" value="Month" oninput="updateChart()">
+
+    <label class="fl">Y-Axis Label</label>
+    <input class="fi" id="y-label" value="Revenue ($k)" oninput="updateChart()">
+
+    <!-- Dataset 1 -->
+    <div class="sec">Dataset 1</div>
+    <div class="ds-row">
+      <div class="ds-row-header">
+        <input class="fi" id="ds1-name" value="Product A" oninput="updateChart()" style="margin:0;flex:1">
+        <input type="color" class="ds-color" id="ds1-color" value="#06b6d4" oninput="updateChart()">
+      </div>
+      <label class="fl">Values</label>
+      <textarea class="fta" id="ds1-vals" oninput="updateChart()">42,78,55,91,63,84,72</textarea>
+    </div>
+
+    <!-- Dataset 2 -->
+    <div class="sec">Dataset 2</div>
+    <div class="ds-row">
+      <div class="ds-row-header">
+        <input class="fi" id="ds2-name" value="Product B" oninput="updateChart()" style="margin:0;flex:1">
+        <input type="color" class="ds-color" id="ds2-color" value="#8b5cf6" oninput="updateChart()">
+      </div>
+      <label class="fl">Values (leave empty to hide)</label>
+      <textarea class="fta" id="ds2-vals" oninput="updateChart()">30,55,70,45,80,60,88</textarea>
+    </div>
+
+    <div style="padding:.25rem 0">
+      <label class="fl" style="margin-bottom:.3rem">Options</label>
+      <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;margin-bottom:.3rem">
+        <input type="checkbox" id="show-legend" checked onchange="updateChart()" style="accent-color:var(--acc)">
+        <span style="font-size:.78rem;color:var(--t2)">Show legend</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer">
+        <input type="checkbox" id="smooth-lines" checked onchange="updateChart()" style="accent-color:var(--acc)">
+        <span style="font-size:.78rem;color:var(--t2)">Smooth curves</span>
+      </label>
     </div>
   </aside>
-  <div class="chart-area">
-    <div class="chart-wrap"><canvas id="chart"></canvas></div>
-  </div>
-</main>
 
-<div class="ad-slot" aria-label="Advertisement">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8759032363251002" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <div class="chart-area">
+    <div class="ph"><span class="pd"></span> Chart Preview <span class="phr" id="chart-info" style="font-size:.68rem;color:var(--t3)"></span></div>
+    <div id="chart-container">
+      <canvas id="chartjs-canvas"></canvas>
+      <div id="echarts-div"></div>
+    </div>
+  </div>
 </div>
 
+<div class="statusbar">
+  <span class="sdot"></span>
+  <span id="status-engine" style="color:var(--acc-h);font-weight:600">Chart.js v4</span>
+  <span id="status-type" style="color:var(--t3)">bar</span>
+  <span style="margin-left:auto;font-size:.65rem;color:var(--t4)">Real-time preview · PNG export</span>
+</div>
+
+<footer class="seo-footer">
+  <div class="sfl">
+    <a href="https://universeinvedors.tech">Universe Invedors</a>
+    <a href="https://universeinvedors.tech/tools">All Tools</a>
+    <a href="https://code.universeinvedors.tech">Code</a>
+    <a href="https://diagram.universeinvedors.tech">Diagrams</a>
+    <a href="https://ocr.universeinvedors.tech">OCR</a>
+    <a href="https://pdf.universeinvedors.tech">PDF</a>
+    <a href="https://image.universeinvedors.tech">Image</a>
+    <a href="https://3d.universeinvedors.tech">3D</a>
+    <a href="https://map.universeinvedors.tech">Maps</a>
+    <a href="https://media.universeinvedors.tech">Media</a>
+  </div>
+  <span>© 2024 Universe Invedors · Chart.js · Apache ECharts · Free chart maker</span>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
 <script>
-const COLORS = ['#3b82f6','#06b6d4','#8b5cf6','#10b981','#f59e0b','#ec4899','#f97316','#ef4444']
-let chartType = 'bar'
-let chartInst = null
+const COLORS = ['#06b6d4','#8b5cf6','#10b981','#f97316','#f59e0b','#ec4899','#3b82f6','#ef4444']
+let chartType='bar', engine='chartjs', chartInst=null, echartsInst=null
 
-function parse(str) { return str.split(',').map(s => s.trim()).filter(Boolean) }
-function parseNums(str) { return str.split(',').map(s => parseFloat(s.trim())).filter(n => !isNaN(n)) }
+function parseNums(str){ return str.split(',').map(s=>parseFloat(s.trim())).filter(n=>!isNaN(n)) }
+function parseLabels(str){ return str.split(',').map(s=>s.trim()).filter(Boolean) }
 
-function setType(t, btn) {
-  chartType = t
-  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'))
+function switchEngine(eng, btn){
+  engine=eng
+  document.querySelectorAll('.et').forEach(t=>t.classList.remove('active'))
   btn.classList.add('active')
-  const isPolar = t === 'pie' || t === 'doughnut' || t === 'radar'
-  document.getElementById('ds2section').style.display = isPolar ? 'none' : ''
-  update()
+  document.getElementById('status-engine').textContent = eng==='chartjs'?'Chart.js v4':'Apache ECharts v5'
+  document.getElementById('chartjs-canvas').style.display = eng==='chartjs'?'block':'none'
+  document.getElementById('echarts-div').style.display = eng==='echarts'?'block':'none'
+  updateChart()
 }
 
-function update() {
-  const labels = parse(document.getElementById('labels').value)
-  const d1 = parseNums(document.getElementById('ds1').value)
-  const d2 = parseNums(document.getElementById('ds2').value)
-  const title = document.getElementById('title').value
-  const c1 = document.getElementById('ds1color').value
-  const c2 = document.getElementById('ds2color').value
-  const isPolar = chartType === 'pie' || chartType === 'doughnut' || chartType === 'radar'
+function setType(t, el){
+  chartType=t
+  document.querySelectorAll('.ct').forEach(c=>c.classList.remove('active'))
+  el.classList.add('active')
+  document.getElementById('status-type').textContent=t
+  updateChart()
+}
 
+function updateChart(){
+  const title = document.getElementById('chart-title').value
+  const labels = parseLabels(document.getElementById('labels').value)
+  const d1vals = parseNums(document.getElementById('ds1-vals').value)
+  const d2vals = parseNums(document.getElementById('ds2-vals').value)
+  const d1name = document.getElementById('ds1-name').value
+  const d2name = document.getElementById('ds2-name').value
+  const c1 = document.getElementById('ds1-color').value
+  const c2 = document.getElementById('ds2-color').value
+  const showLegend = document.getElementById('show-legend').checked
+  const smooth = document.getElementById('smooth-lines').checked
+  const isPolar = ['pie','doughnut','polarArea'].includes(chartType)
+  const isRadar = chartType === 'radar'
+
+  if(engine==='chartjs') renderChartJS(title,labels,d1vals,d2vals,d1name,d2name,c1,c2,showLegend,smooth,isPolar,isRadar)
+  else renderECharts(title,labels,d1vals,d2vals,d1name,d2name,c1,c2,showLegend,smooth,isPolar)
+
+  document.getElementById('chart-info').textContent = `${d1vals.length} data points · ${engine==='echarts'?'ECharts':'Chart.js'}`
+}
+
+function renderChartJS(title,labels,d1,d2,d1n,d2n,c1,c2,legend,smooth,isPolar,isRadar){
+  if(chartInst){ chartInst.destroy(); chartInst=null }
+  const ctx = document.getElementById('chartjs-canvas').getContext('2d')
   const datasets = [{
-    label: document.getElementById('ds1name').value,
-    data: d1,
-    backgroundColor: isPolar ? COLORS.slice(0, labels.length).map(c => c + 'bb') : c1 + 'cc',
-    borderColor: isPolar ? COLORS.slice(0, labels.length) : c1,
-    borderWidth: 2, fill: chartType === 'line', tension: 0.4, pointRadius: chartType === 'line' ? 4 : 3,
+    label:d1n, data:d1,
+    backgroundColor: isPolar||isRadar ? COLORS.slice(0,labels.length).map(c=>c+'bb') : c1+'cc',
+    borderColor: isPolar||isRadar ? COLORS.slice(0,labels.length) : c1,
+    borderWidth:2, fill:false, tension:smooth?0.4:0, pointRadius:3,
   }]
+  if(d2.length&&!isPolar&&!isRadar) datasets.push({
+    label:d2n, data:d2,
+    backgroundColor:c2+'cc', borderColor:c2,
+    borderWidth:2, fill:false, tension:smooth?0.4:0, pointRadius:3,
+  })
 
-  if (!isPolar && d2.length) {
-    datasets.push({
-      label: document.getElementById('ds2name').value,
-      data: d2, backgroundColor: c2 + 'cc', borderColor: c2,
-      borderWidth: 2, fill: false, tension: 0.4, pointRadius: 4,
-    })
-  }
-
-  if (chartInst) chartInst.destroy()
-  chartInst = new Chart(document.getElementById('chart'), {
+  chartInst = new Chart(ctx, {
     type: chartType,
     data: { labels, datasets },
     options: {
-      responsive: true,
-      plugins: {
-        legend: { labels: { color: '#e6edf3', font: { size: 12 } } },
-        title: { display: !!title, text: title, color: '#e6edf3', font: { size: 15, weight: 'bold' } },
+      responsive:true, maintainAspectRatio:true, animation:{duration:400},
+      plugins:{
+        legend:{ display:legend, labels:{color:'#a8b5cc',font:{size:12}} },
+        title:{ display:!!title, text:title, color:'#f0f4ff', font:{size:15,weight:'bold'} },
       },
-      scales: isPolar ? {} : {
-        x: { ticks: { color: '#8b949e' }, grid: { color: 'rgba(255,255,255,.05)' } },
-        y: { ticks: { color: '#8b949e' }, grid: { color: 'rgba(255,255,255,.07)' } },
+      scales: (isPolar||isRadar)?{}:{
+        x:{ ticks:{color:'#64748b'}, grid:{color:'rgba(255,255,255,.04)'}, title:{display:!!document.getElementById('x-label').value,text:document.getElementById('x-label').value,color:'#64748b'} },
+        y:{ ticks:{color:'#64748b'}, grid:{color:'rgba(255,255,255,.06)'}, title:{display:!!document.getElementById('y-label').value,text:document.getElementById('y-label').value,color:'#64748b'} },
       },
-    },
+    }
   })
 }
 
-function downloadChart() {
-  const a = document.createElement('a')
-  a.download = 'chart.png'
-  a.href = document.getElementById('chart').toDataURL('image/png')
-  a.click()
+function renderECharts(title,labels,d1,d2,d1n,d2n,c1,c2,legend,smooth,isPolar){
+  const el = document.getElementById('echarts-div')
+  if(!echartsInst) echartsInst = echarts.init(el, 'dark', {backgroundColor:'#090c13'})
+  const series = [{name:d1n,type:chartType==='bar'?'bar':chartType==='line'?'line':'bar',data:d1,smooth,itemStyle:{color:c1},areaStyle:chartType==='line'?{color:c1+'22'}:null}]
+  if(d2.length&&!isPolar) series.push({name:d2n,type:chartType==='bar'?'bar':'line',data:d2,smooth,itemStyle:{color:c2}})
+
+  echartsInst.setOption({
+    title:{text:title,textStyle:{color:'#f0f4ff',fontSize:15}},
+    backgroundColor:'#090c13',
+    tooltip:{trigger:'axis',backgroundColor:'#1a2235',borderColor:'rgba(255,255,255,.1)',textStyle:{color:'#f0f4ff'}},
+    legend:{show:legend,textStyle:{color:'#a8b5cc'},top:'bottom'},
+    grid:{left:'3%',right:'4%',bottom:'12%',containLabel:true},
+    xAxis:{type:'category',data:labels,axisLabel:{color:'#64748b'},axisLine:{lineStyle:{color:'rgba(255,255,255,.07)'}},splitLine:{lineStyle:{color:'rgba(255,255,255,.04)'}}},
+    yAxis:{type:'value',name:document.getElementById('y-label').value,nameTextStyle:{color:'#64748b'},axisLabel:{color:'#64748b'},axisLine:{lineStyle:{color:'rgba(255,255,255,.07)'}},splitLine:{lineStyle:{color:'rgba(255,255,255,.05)'}}},
+    series, animation:true, animationDuration:400,
+  })
 }
 
-update()
-</script>
+function loadPreset(){
+  const presets = [
+    {title:'Monthly Sales',labels:'Jan,Feb,Mar,Apr,May,Jun',d1:'42,78,55,91,63,84',d2:'30,55,70,45,80,60',d1n:'Product A',d2n:'Product B'},
+    {title:'Website Traffic',labels:'Mon,Tue,Wed,Thu,Fri,Sat,Sun',d1:'1200,1900,1500,2100,1800,900,600',d2:'800,1100,900,1400,1200,500,350',d1n:'Visitors',d2n:'Unique'},
+    {title:'Tech Stack',labels:'React,Vue,Angular,Svelte,Solid',d1:'45,25,18,8,4',d2:'',d1n:'Usage %',d2n:''},
+  ]
+  const p = presets[Math.floor(Math.random()*presets.length)]
+  document.getElementById('chart-title').value=p.title
+  document.getElementById('labels').value=p.labels
+  document.getElementById('ds1-vals').value=p.d1
+  document.getElementById('ds1-name').value=p.d1n
+  document.getElementById('ds2-vals').value=p.d2
+  document.getElementById('ds2-name').value=p.d2n
+  updateChart()
+  toast('Example loaded','ok')
+}
 
-<!-- SEO Footer — internal links to main site and sibling tools -->
-<footer style="padding:.75rem 1rem;border-top:1px solid rgba(255,255,255,.07);background:#0a0d13;font-family:'Inter',system-ui,sans-serif;font-size:.72rem;color:#6b7685;display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;align-items:center;justify-content:space-between">
-  <div style="display:flex;flex-wrap:wrap;gap:.4rem .9rem;align-items:center">
-    <a href="https://universeinvedors.tech" style="color:#3b82f6;text-decoration:none" rel="noopener">Universe Invedors</a>
-    <span>·</span>
-    <a href="https://universeinvedors.tech/tools" style="color:#8b949e;text-decoration:none">All Tools</a>
-    <span>·</span>
-    <a href="https://code.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Code</a>
-    <a href="https://diagram.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Diagrams</a>
-    <a href="https://chart.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Charts</a>
-    <a href="https://ocr.universeinvedors.tech" style="color:#8b949e;text-decoration:none">OCR</a>
-    <a href="https://pdf.universeinvedors.tech" style="color:#8b949e;text-decoration:none">PDF</a>
-    <a href="https://image.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Image</a>
-    <a href="https://3d.universeinvedors.tech" style="color:#8b949e;text-decoration:none">3D</a>
-    <a href="https://map.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Maps</a>
-    <a href="https://media.universeinvedors.tech" style="color:#8b949e;text-decoration:none">Media</a>
-  </div>
-  <div>
-    <a href="https://universeinvedors.tech/privacy" style="color:#6b7685;text-decoration:none">Privacy</a>
-    &nbsp;·&nbsp;
-    <span>&copy; 2024 Universe Invedors</span>
-  </div>
-</footer>
+function copyConfig(){
+  const cfg={type:chartType,labels:parseLabels(document.getElementById('labels').value),datasets:[{label:document.getElementById('ds1-name').value,data:parseNums(document.getElementById('ds1-vals').value)}]}
+  navigator.clipboard.writeText(JSON.stringify(cfg,null,2)).then(()=>toast('Config copied','ok'))
+}
+
+function downloadPNG(){
+  if(engine==='chartjs'){
+    const a=document.createElement('a'); a.download='chart.png'
+    a.href=document.getElementById('chartjs-canvas').toDataURL(); a.click()
+  } else if(echartsInst){
+    const a=document.createElement('a'); a.download='chart.png'
+    a.href=echartsInst.getDataURL({type:'png',pixelRatio:2,backgroundColor:'#090c13'}); a.click()
+  }
+  toast('Chart downloaded','ok')
+}
+
+function toast(msg,type=''){
+  const el=document.createElement('div'); el.className='toast'+(type?' '+type:''); el.textContent=msg
+  document.getElementById('toasts').appendChild(el); setTimeout(()=>el.remove(),2800)
+}
+
+// Resize ECharts on window resize
+window.addEventListener('resize',()=>{ if(echartsInst) echartsInst.resize() })
+
+updateChart()
+</script>
 </body>
 </html>
