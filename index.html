@@ -1,120 +1,102 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Chart Builder — Free Online Bar, Line, Pie and Radar Chart Maker | Universe Invedors Tools</title>
-<meta name="description" content="Create interactive bar, line, pie, doughnut, radar and scatter charts online free. Powered by Chart.js and Apache ECharts. Download PNG. No sign-up."/>
-<meta name="keywords" content="free chart maker online,bar chart creator,pie chart generator,line graph maker,Apache ECharts online,Chart.js online,data visualization free"/>
-<link rel="canonical" href="https://chart.universeinvedors.tech/"/>
-<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
-<meta name="author" content="Universe Invedors"/>
-<meta property="og:title" content="Chart Builder — Free Online Bar, Line, Pie Chart Maker"/>
-<meta property="og:description" content="Create interactive charts from your data. Chart.js and ECharts engines. Download PNG. Free."/>
-<meta property="og:url" content="https://chart.universeinvedors.tech/"/>
-<meta property="og:type" content="website"/>
-<meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/>
-<meta property="og:site_name" content="Universe Invedors Tools"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg"/>
-<link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
-<link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any"/>
-<meta name="theme-color" content="#090c13"/>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Chart Studio — Chart.js + ECharts + Plotly + D3 | CSV Import | Dashboard Builder | Universe Invedors</title>
+<meta name="description" content="Professional online chart builder. Chart.js, Apache ECharts, Plotly.js and D3.js engines. Import CSV/JSON data. Build dashboards. 20+ chart types. Export PNG/SVG."/>
+<meta name="keywords" content="online chart maker,data visualization tool,Chart.js online,Apache ECharts,Plotly online,D3.js chart,CSV chart maker,dashboard builder free"/>
+<link rel="canonical" href="https://chart.universeinvedors.tech/"/><meta name="robots" content="index,follow"/><meta name="author" content="Universe Invedors"/>
+<meta property="og:title" content="Chart Studio — Chart.js, ECharts, Plotly, D3 — Free Online Data Visualization"/><meta property="og:url" content="https://chart.universeinvedors.tech/"/><meta property="og:type" content="website"/><meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/><meta property="og:site_name" content="Universe Invedors Tools"/>
+<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg"/>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any"/><meta name="theme-color" content="#090c13"/>
 <meta name="google-adsense-account" content="ca-pub-8759032363251002"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8759032363251002" crossorigin="anonymous"></script>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Chart Builder","url":"https://chart.universeinvedors.tech","applicationCategory":"DeveloperApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Universe Invedors","url":"https://universeinvedors.tech"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Universe Invedors","item":"https://universeinvedors.tech"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://universeinvedors.tech/tools"},{"@type":"ListItem","position":3,"name":"Chart Builder","item":"https://chart.universeinvedors.tech"}]}]</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#090c13;--surf:#0f1420;--elev:#141b28;--card:#1a2235;--inp:#111827;
-  --t1:#f0f4ff;--t2:#a8b5cc;--t3:#64748b;--t4:#3d4f6e;
-  --acc:#06b6d4;--acc-h:#22d3ee;--acc-glow:rgba(6,182,212,.25);
-  --green:#10b981;--violet:#8b5cf6;--blue:#3b82f6;--orange:#f97316;
-  --border:rgba(255,255,255,.07);--bh:rgba(255,255,255,.14);
-  --font:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
-  --mono:'JetBrains Mono','Fira Code',Consolas,monospace;
-  --r:10px;--th:52px;--sw:260px;--tr:180ms cubic-bezier(.4,0,.2,1);
-}
-html{font-size:16px;-webkit-text-size-adjust:100%}
-body{font-family:var(--font);background:var(--bg);color:var(--t1);height:100dvh;display:flex;flex-direction:column;overflow:hidden;-webkit-font-smoothing:antialiased}
+:root{--bg:#090c13;--surf:#0d1117;--elev:#141b28;--card:#1a2235;--inp:#111827;--t1:#f0f4ff;--t2:#a8b5cc;--t3:#64748b;--t4:#3d4f6e;--acc:#06b6d4;--acc-h:#22d3ee;--acc-glow:rgba(6,182,212,.22);--green:#10b981;--violet:#8b5cf6;--blue:#3b82f6;--orange:#f97316;--border:rgba(255,255,255,.07);--bh:rgba(255,255,255,.13);--font:'Inter',-apple-system,sans-serif;--mono:'JetBrains Mono',Consolas,monospace;--r:8px;--th:50px;--sw:280px;--tr:160ms cubic-bezier(.4,0,.2,1)}
+html{font-size:16px}body{font-family:var(--font);background:var(--bg);color:var(--t1);height:100dvh;display:flex;flex-direction:column;overflow:hidden;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
-.tb{height:var(--th);background:rgba(9,12,19,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;padding:0 .85rem;flex-shrink:0}
-.logo{display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:700;color:var(--t1);text-decoration:none;white-space:nowrap;flex-shrink:0}
-.logo:hover{color:var(--acc-h);text-decoration:none}
-.etabs{display:flex;gap:.1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:3px;overflow-x:auto}
-.et{padding:.26rem .65rem;border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--t3);transition:all var(--tr)}
-.et:hover{background:rgba(255,255,255,.06);color:var(--t2)}
-.et.active{background:var(--acc);color:#000;box-shadow:0 0 10px var(--acc-glow)}
+.topbar{height:var(--th);background:rgba(9,12,19,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem;padding:0 .85rem;flex-shrink:0;z-index:200}
+.logo{font-size:.82rem;font-weight:700;color:var(--t1);text-decoration:none;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:.4rem}.logo:hover{color:var(--acc-h);text-decoration:none}
+.etabs{display:flex;gap:.1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:3px;flex-shrink:1;overflow-x:auto}
+.et{padding:.26rem .65rem;border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--t3);white-space:nowrap;transition:all var(--tr)}.et:hover{background:rgba(255,255,255,.06);color:var(--t2)}.et.active{background:var(--acc);color:#000;box-shadow:0 0 10px var(--acc-glow)}
 .sp{flex:1}
-.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.38rem .85rem;border-radius:var(--r);font-size:.75rem;font-weight:600;cursor:pointer;border:none;transition:all var(--tr);white-space:nowrap}
-.bg{background:rgba(255,255,255,.05);color:var(--t2);border:1px solid var(--border)}
-.bg:hover{background:rgba(255,255,255,.09);border-color:var(--bh);color:var(--t1)}
-.bp{background:var(--acc);color:#000}
-.bp:hover{background:var(--acc-h)}
-.bsm{padding:.26rem .6rem;font-size:.68rem}
-/* layout */
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.32rem .75rem;border-radius:var(--r);font-size:.73rem;font-weight:600;cursor:pointer;border:none;transition:all var(--tr);white-space:nowrap}
+.bg{background:rgba(255,255,255,.05);color:var(--t2);border:1px solid var(--border)}.bg:hover{background:rgba(255,255,255,.09);border-color:var(--bh);color:var(--t1)}
+.bp{background:var(--acc);color:#000}.bp:hover{background:var(--acc-h)}
+.bsm{padding:.22rem .55rem;font-size:.68rem}
+/* Layout */
 .main{display:flex;flex:1;overflow:hidden}
-.sidebar{width:var(--sw);background:var(--surf);border-right:1px solid var(--border);overflow-y:auto;padding:.65rem .55rem;display:flex;flex-direction:column;gap:.3rem;flex-shrink:0}
+.sidebar{width:var(--sw);background:var(--surf);border-right:1px solid var(--border);overflow-y:auto;padding:.65rem .55rem;flex-shrink:0;display:flex;flex-direction:column;gap:.55rem}
+.sec{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t4);padding:.4rem .3rem .1rem;margin-top:.1rem}
+/* Chart type grid */
+.ct-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.28rem}
+.ct{padding:.38rem .2rem;border-radius:7px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:.68rem;font-weight:600;color:var(--t3);text-align:center;transition:all var(--tr);display:flex;flex-direction:column;align-items:center;gap:.18rem}
+.ct:hover{background:rgba(6,182,212,.08);border-color:rgba(6,182,212,.25)}.ct.active{background:rgba(6,182,212,.14);border-color:rgba(6,182,212,.4);color:var(--acc-h)}
+.ct-icon{font-size:1rem}
+/* Form fields */
+.fl{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--t3);margin-bottom:.28rem;display:block}
+.fi,.fs{width:100%;padding:.4rem .65rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.8rem;font-family:var(--font);outline:none;transition:border-color var(--tr);margin-bottom:.55rem}
+.fi:focus,.fs:focus{border-color:rgba(6,182,212,.45)}
+.fta{width:100%;padding:.5rem .65rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-family:var(--mono);font-size:.75rem;resize:vertical;min-height:60px;outline:none;margin-bottom:.55rem;line-height:1.5}
+.fta:focus{border-color:rgba(6,182,212,.45)}
+/* Dataset */
+.ds-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.6rem;margin-bottom:.4rem}
+.ds-header{display:flex;align-items:center;gap:.4rem;margin-bottom:.4rem}
+.ds-color{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);cursor:pointer;padding:.15rem;background:transparent;flex-shrink:0}
+/* Chart area */
 .chart-area{flex:1;display:flex;flex-direction:column;overflow:hidden}
-.ph{display:flex;align-items:center;gap:.5rem;padding:.35rem .85rem;background:var(--surf);border-bottom:1px solid var(--border);font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);flex-shrink:0}
+.ph{display:flex;align-items:center;gap:.5rem;padding:.35rem .75rem;background:var(--surf);border-bottom:1px solid var(--border);font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);flex-shrink:0}
 .pd{width:6px;height:6px;border-radius:50%;background:var(--acc)}
 .phr{margin-left:auto;display:flex;gap:.3rem}
-#chart-container{flex:1;display:flex;align-items:center;justify-content:center;padding:1.5rem;overflow:hidden}
-#chartjs-canvas{display:block;max-width:100%;max-height:100%}
-#echarts-div{width:100%;height:100%;display:none}
-/* field */
-.fl{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--t3);margin-bottom:.28rem;display:block}
-.fi,.fs,.fta{width:100%;padding:.42rem .65rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.8rem;font-family:var(--font);outline:none;transition:border-color var(--tr);margin-bottom:.65rem}
-.fi:focus,.fs:focus,.fta:focus{border-color:rgba(6,182,212,.5)}
-.fta{resize:vertical;min-height:58px;font-family:var(--mono);font-size:.75rem;line-height:1.5}
-/* chart type grid */
-.ctype-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.3rem;margin-bottom:.7rem}
-.ct{padding:.4rem .2rem;border-radius:8px;font-size:.68rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--t3);text-align:center;transition:all var(--tr);display:flex;flex-direction:column;align-items:center;gap:.2rem}
-.ct:hover{background:rgba(6,182,212,.08);border-color:rgba(6,182,212,.25)}
-.ct.active{background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.4);color:var(--acc-h)}
-.ct-icon{font-size:1.1rem}
-/* sec header */
-.sec{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t4);padding:.45rem .3rem .15rem}
-/* dataset row */
-.ds-row{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.6rem;margin-bottom:.4rem}
-.ds-row-header{display:flex;align-items:center;gap:.4rem;margin-bottom:.4rem}
-.ds-title{font-size:.78rem;font-weight:600;color:var(--t1)}
-.ds-color{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);cursor:pointer;padding:.18rem;background:transparent}
-/* statusbar */
-.statusbar{display:flex;align-items:center;gap:.75rem;padding:.25rem .85rem;background:var(--surf);border-top:1px solid var(--border);font-size:.68rem;color:var(--t3);flex-shrink:0}
-.sdot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.seo-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem .75rem;padding:.4rem .85rem;border-top:1px solid var(--border);background:var(--surf);font-size:.67rem;color:var(--t3);flex-shrink:0}
-.seo-footer a{color:var(--t3)}.seo-footer a:hover{color:var(--t2)}
-.sfl{display:flex;flex-wrap:wrap;gap:.2rem .6rem}
-.toasts{position:fixed;bottom:1rem;right:1rem;z-index:999;display:flex;flex-direction:column;gap:.4rem;pointer-events:none}
-.toast{padding:.55rem .9rem;border-radius:var(--r);font-size:.75rem;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--t1);box-shadow:0 8px 32px rgba(0,0,0,.5);animation:tin .22s ease}
-.toast.ok{border-color:rgba(16,185,129,.3);color:var(--green)}.toast.err{border-color:rgba(239,68,68,.3);color:#f87171}
+.chart-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:1.5rem;overflow:hidden;background:rgba(255,255,255,.01)}
+#chartjs-canvas{max-width:100%;max-height:100%}
+#echarts-div,#plotly-div{width:100%;height:100%;display:none}
+/* CSV import */
+.import-area{padding:.6rem;background:var(--card);border:1px solid rgba(6,182,212,.2);border-radius:var(--r)}
+.import-title{font-size:.72rem;font-weight:700;color:var(--acc-h);margin-bottom:.4rem}
+/* Dashboard mode */
+.dashboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1rem;flex:1;overflow:auto}
+.dash-cell{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.65rem;position:relative}
+.dash-cell-title{font-size:.75rem;font-weight:600;color:var(--t2);margin-bottom:.5rem}
+.statusbar{display:flex;align-items:center;gap:.75rem;padding:.22rem .75rem;background:var(--surf);border-top:1px solid var(--border);font-size:.67rem;color:var(--t3);flex-shrink:0}
+.seo-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem .75rem;padding:.35rem .75rem;border-top:1px solid var(--border);background:var(--surf);font-size:.65rem;color:var(--t3);flex-shrink:0}
+.seo-footer a{color:var(--t3)}.seo-footer a:hover{color:var(--t2)}.sf-links{display:flex;flex-wrap:wrap;gap:.2rem .6rem}
+.toasts{position:fixed;bottom:2.5rem;right:1rem;z-index:999;display:flex;flex-direction:column;gap:.4rem;pointer-events:none}
+.toast{padding:.5rem .85rem;border-radius:var(--r);font-size:.75rem;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--t1);box-shadow:0 6px 24px rgba(0,0,0,.5);animation:tin .2s ease}
+.toast.ok{border-color:rgba(16,185,129,.35);color:var(--green)}.toast.err{border-color:rgba(239,68,68,.35);color:#f87171}.toast.info{border-color:rgba(6,182,212,.35);color:var(--acc-h)}
 @keyframes tin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:720px){.sidebar{display:none}}
+@media(max-width:768px){.sidebar{display:none}}
 </style>
 </head>
 <body>
-
-<header class="tb">
-  <a href="https://universeinvedors.tech/tools" class="logo">📊 Universe Tools <span style="color:var(--t4);font-weight:400;font-size:.75rem">/</span> <span style="color:var(--acc-h)">Chart Builder</span></a>
-  <div class="etabs" role="tablist">
-    <button class="et active" onclick="switchEngine('chartjs',this)" role="tab">Chart.js</button>
-    <button class="et" onclick="switchEngine('echarts',this)" role="tab">Apache ECharts</button>
+<header class="topbar">
+  <a href="https://universeinvedors.tech/tools" class="logo">📊 <span style="color:var(--acc-h)">Chart Studio</span></a>
+  <div class="etabs">
+    <button class="et active" onclick="setEngine('chartjs',this)">Chart.js v4</button>
+    <button class="et" onclick="setEngine('echarts',this)">Apache ECharts</button>
+    <button class="et" onclick="setEngine('plotly',this)">Plotly.js</button>
+    <button class="et" onclick="setEngine('d3',this)">D3.js</button>
+    <button class="et" onclick="setEngine('dashboard',this)">📊 Dashboard</button>
   </div>
   <div class="sp"></div>
   <div style="display:flex;gap:.4rem">
-    <button class="btn bg bsm" onclick="loadPreset()" id="preset-btn">Load Example</button>
-    <button class="btn bg bsm" onclick="copyConfig()">Copy JSON</button>
-    <button class="btn bp" onclick="downloadPNG()">↓ PNG</button>
+    <button class="btn bg bsm" onclick="document.getElementById('csv-file').click()">📂 Import CSV</button>
+    <button class="btn bg bsm" onclick="pasteJSON()">📋 Paste JSON</button>
+    <button class="btn bg bsm" onclick="loadPreset()">🎲 Example</button>
+    <button class="btn bg bsm" onclick="copyConfig()">Copy Config</button>
+    <button class="btn bp bsm" onclick="downloadPNG()">↓ PNG</button>
   </div>
+  <input type="file" id="csv-file" accept=".csv,.txt" style="display:none" onchange="importCSV(this.files[0])">
 </header>
 
 <div class="main">
   <aside class="sidebar">
-    <!-- Chart type -->
     <div class="sec">Chart Type</div>
-    <div class="ctype-grid">
+    <div class="ct-grid" id="ct-grid">
       <div class="ct active" onclick="setType('bar',this)"><span class="ct-icon">▊</span>Bar</div>
       <div class="ct" onclick="setType('line',this)"><span class="ct-icon">╱</span>Line</div>
       <div class="ct" onclick="setType('pie',this)"><span class="ct-icon">◕</span>Pie</div>
@@ -123,230 +105,350 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);height:100dvh;
       <div class="ct" onclick="setType('scatter',this)"><span class="ct-icon">⁘</span>Scatter</div>
       <div class="ct" onclick="setType('bubble',this)"><span class="ct-icon">◉</span>Bubble</div>
       <div class="ct" onclick="setType('polarArea',this)"><span class="ct-icon">⊛</span>Polar</div>
+      <div class="ct" onclick="setType('area',this)"><span class="ct-icon">▲</span>Area</div>
+      <div class="ct" onclick="setType('heatmap',this)"><span class="ct-icon">🔲</span>Heat</div>
+      <div class="ct" onclick="setType('treemap',this)"><span class="ct-icon">▦</span>Tree</div>
+      <div class="ct" onclick="setType('gauge',this)"><span class="ct-icon">⏱</span>Gauge</div>
     </div>
 
-    <!-- Chart settings -->
-    <div class="sec">Settings</div>
-    <label class="fl">Chart Title</label>
-    <input class="fi" id="chart-title" value="Monthly Revenue 2024" oninput="updateChart()">
+    <div class="sec">Chart Settings</div>
+    <label class="fl">Title</label>
+    <input class="fi" id="chart-title" value="Monthly Revenue 2024" oninput="update()">
+    <label class="fl">Labels (comma-separated)</label>
+    <input class="fi" id="labels" value="Jan,Feb,Mar,Apr,May,Jun,Jul,Aug" oninput="update()">
+    <div style="display:flex;gap:.5rem">
+      <div style="flex:1"><label class="fl">X-axis</label><input class="fi" id="x-label" value="Month" oninput="update()"></div>
+      <div style="flex:1"><label class="fl">Y-axis</label><input class="fi" id="y-label" value="Revenue ($k)" oninput="update()"></div>
+    </div>
 
-    <label class="fl">Labels (comma separated)</label>
-    <input class="fi" id="labels" value="Jan,Feb,Mar,Apr,May,Jun,Jul" oninput="updateChart()">
-
-    <label class="fl">X-Axis Label</label>
-    <input class="fi" id="x-label" value="Month" oninput="updateChart()">
-
-    <label class="fl">Y-Axis Label</label>
-    <input class="fi" id="y-label" value="Revenue ($k)" oninput="updateChart()">
-
-    <!-- Dataset 1 -->
     <div class="sec">Dataset 1</div>
-    <div class="ds-row">
-      <div class="ds-row-header">
-        <input class="fi" id="ds1-name" value="Product A" oninput="updateChart()" style="margin:0;flex:1">
-        <input type="color" class="ds-color" id="ds1-color" value="#06b6d4" oninput="updateChart()">
+    <div class="ds-card">
+      <div class="ds-header">
+        <input class="fi" id="ds1n" value="Product A" oninput="update()" style="margin:0;flex:1">
+        <input type="color" class="ds-color" id="ds1c" value="#06b6d4" oninput="update()">
       </div>
       <label class="fl">Values</label>
-      <textarea class="fta" id="ds1-vals" oninput="updateChart()">42,78,55,91,63,84,72</textarea>
+      <textarea class="fta" id="ds1" oninput="update()">42,78,55,91,63,84,72,88</textarea>
     </div>
 
-    <!-- Dataset 2 -->
     <div class="sec">Dataset 2</div>
-    <div class="ds-row">
-      <div class="ds-row-header">
-        <input class="fi" id="ds2-name" value="Product B" oninput="updateChart()" style="margin:0;flex:1">
-        <input type="color" class="ds-color" id="ds2-color" value="#8b5cf6" oninput="updateChart()">
+    <div class="ds-card">
+      <div class="ds-header">
+        <input class="fi" id="ds2n" value="Product B" oninput="update()" style="margin:0;flex:1">
+        <input type="color" class="ds-color" id="ds2c" value="#8b5cf6" oninput="update()">
       </div>
-      <label class="fl">Values (leave empty to hide)</label>
-      <textarea class="fta" id="ds2-vals" oninput="updateChart()">30,55,70,45,80,60,88</textarea>
+      <label class="fl">Values (empty to hide)</label>
+      <textarea class="fta" id="ds2" oninput="update()">30,55,70,45,80,60,88,75</textarea>
     </div>
 
-    <div style="padding:.25rem 0">
-      <label class="fl" style="margin-bottom:.3rem">Options</label>
-      <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;margin-bottom:.3rem">
-        <input type="checkbox" id="show-legend" checked onchange="updateChart()" style="accent-color:var(--acc)">
-        <span style="font-size:.78rem;color:var(--t2)">Show legend</span>
-      </label>
-      <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer">
-        <input type="checkbox" id="smooth-lines" checked onchange="updateChart()" style="accent-color:var(--acc)">
-        <span style="font-size:.78rem;color:var(--t2)">Smooth curves</span>
-      </label>
+    <div class="sec">Display</div>
+    <div style="display:flex;flex-direction:column;gap:.35rem">
+      <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.78rem;color:var(--t2)"><input type="checkbox" id="show-legend" checked onchange="update()" style="accent-color:var(--acc)"> Show legend</label>
+      <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.78rem;color:var(--t2)"><input type="checkbox" id="smooth" checked onchange="update()" style="accent-color:var(--acc)"> Smooth curves</label>
+      <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.78rem;color:var(--t2)"><input type="checkbox" id="fill-area" onchange="update()" style="accent-color:var(--acc)"> Fill area</label>
+      <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.78rem;color:var(--t2)"><input type="checkbox" id="animation" checked onchange="update()" style="accent-color:var(--acc)"> Animation</label>
+    </div>
+
+    <div class="import-area">
+      <div class="import-title">📂 Imported Data</div>
+      <p id="import-status" style="font-size:.72rem;color:var(--t3)">Drop a CSV file or use Import CSV button above</p>
     </div>
   </aside>
 
   <div class="chart-area">
-    <div class="ph"><span class="pd"></span> Chart Preview <span class="phr" id="chart-info" style="font-size:.68rem;color:var(--t3)"></span></div>
-    <div id="chart-container">
+    <div class="ph"><span class="pd"></span> Chart Preview <span class="phr" id="chart-info" style="font-size:.67rem;color:var(--t3)"></span></div>
+    <div class="chart-wrap" id="chart-wrap">
       <canvas id="chartjs-canvas"></canvas>
       <div id="echarts-div"></div>
+      <div id="plotly-div"></div>
+      <div id="d3-div" style="display:none;width:100%;height:100%"></div>
+      <div id="dashboard-view" style="display:none;width:100%;height:100%;overflow:auto"></div>
     </div>
   </div>
 </div>
 
 <div class="statusbar">
-  <span class="sdot"></span>
-  <span id="status-engine" style="color:var(--acc-h);font-weight:600">Chart.js v4</span>
-  <span id="status-type" style="color:var(--t3)">bar</span>
-  <span style="margin-left:auto;font-size:.65rem;color:var(--t4)">Real-time preview · PNG export</span>
+  <span style="color:var(--acc-h);font-weight:600" id="sb-engine">Chart.js v4</span>
+  <span id="sb-type" style="color:var(--t3)">bar</span>
+  <span id="sb-points" style="color:var(--t4)">8 data points</span>
+  <span style="margin-left:auto;font-size:.65rem;color:var(--t4)">Real-time preview · PNG/SVG export · CSV import</span>
 </div>
 
 <footer class="seo-footer">
-  <div class="sfl">
-    <a href="https://universeinvedors.tech">Universe Invedors</a>
-    <a href="https://universeinvedors.tech/tools">All Tools</a>
-    <a href="https://code.universeinvedors.tech">Code</a>
-    <a href="https://diagram.universeinvedors.tech">Diagrams</a>
-    <a href="https://ocr.universeinvedors.tech">OCR</a>
-    <a href="https://pdf.universeinvedors.tech">PDF</a>
-    <a href="https://image.universeinvedors.tech">Image</a>
-    <a href="https://3d.universeinvedors.tech">3D</a>
-    <a href="https://map.universeinvedors.tech">Maps</a>
-    <a href="https://media.universeinvedors.tech">Media</a>
+  <div class="sf-links">
+    <a href="https://universeinvedors.tech">Universe Invedors</a><a href="https://universeinvedors.tech/tools">All Tools</a>
+    <a href="https://code.universeinvedors.tech">Code</a><a href="https://diagram.universeinvedors.tech">Diagrams</a>
+    <a href="https://ocr.universeinvedors.tech">OCR</a><a href="https://pdf.universeinvedors.tech">PDF</a>
+    <a href="https://image.universeinvedors.tech">Image</a><a href="https://3d.universeinvedors.tech">3D</a>
+    <a href="https://map.universeinvedors.tech">Maps</a><a href="https://media.universeinvedors.tech">Media</a>
   </div>
-  <span>© 2024 Universe Invedors · Chart.js · Apache ECharts · Free chart maker</span>
+  <span>© 2024 Universe Invedors · Chart.js · ECharts · Plotly · D3 · Free Chart Builder</span>
 </footer>
-
 <div class="toasts" id="toasts"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
 <script>
-const COLORS = ['#06b6d4','#8b5cf6','#10b981','#f97316','#f59e0b','#ec4899','#3b82f6','#ef4444']
-let chartType='bar', engine='chartjs', chartInst=null, echartsInst=null
+const COLORS = ['#06b6d4','#8b5cf6','#10b981','#f97316','#f59e0b','#ec4899','#3b82f6','#ef4444','#84cc16','#a855f7']
+let engine='chartjs', chartType='bar', chartInst=null, echartsInst=null, importedData=null
 
-function parseNums(str){ return str.split(',').map(s=>parseFloat(s.trim())).filter(n=>!isNaN(n)) }
-function parseLabels(str){ return str.split(',').map(s=>s.trim()).filter(Boolean) }
+function parse(s){return s.split(',').map(x=>x.trim()).filter(Boolean)}
+function parseNums(s){return s.split(',').map(x=>parseFloat(x.trim())).filter(n=>!isNaN(n))}
+function g(id){return document.getElementById(id)}
 
-function switchEngine(eng, btn){
+function setEngine(eng,btn){
   engine=eng
-  document.querySelectorAll('.et').forEach(t=>t.classList.remove('active'))
-  btn.classList.add('active')
-  document.getElementById('status-engine').textContent = eng==='chartjs'?'Chart.js v4':'Apache ECharts v5'
-  document.getElementById('chartjs-canvas').style.display = eng==='chartjs'?'block':'none'
-  document.getElementById('echarts-div').style.display = eng==='echarts'?'block':'none'
-  updateChart()
+  document.querySelectorAll('.et').forEach(t=>t.classList.remove('active')); btn.classList.add('active')
+  g('sb-engine').textContent={chartjs:'Chart.js v4',echarts:'Apache ECharts v5',plotly:'Plotly.js',d3:'D3.js',dashboard:'Dashboard'}[eng]
+  const els=['chartjs-canvas','echarts-div','plotly-div','d3-div','dashboard-view']
+  els.forEach(id=>g(id).style.display='none')
+  const show={chartjs:'chartjs-canvas',echarts:'echarts-div',plotly:'plotly-div',d3:'d3-div',dashboard:'dashboard-view'}[eng]||''
+  if(show) g(show).style.display=['chartjs-canvas'].includes(show)?'block':'block'
+  if(eng==='dashboard') renderDashboard()
+  else update()
 }
 
-function setType(t, el){
-  chartType=t
-  document.querySelectorAll('.ct').forEach(c=>c.classList.remove('active'))
-  el.classList.add('active')
-  document.getElementById('status-type').textContent=t
-  updateChart()
+function setType(t,el){
+  chartType=t; document.querySelectorAll('.ct').forEach(c=>c.classList.remove('active')); el.classList.add('active')
+  g('sb-type').textContent=t
+  update()
 }
 
-function updateChart(){
-  const title = document.getElementById('chart-title').value
-  const labels = parseLabels(document.getElementById('labels').value)
-  const d1vals = parseNums(document.getElementById('ds1-vals').value)
-  const d2vals = parseNums(document.getElementById('ds2-vals').value)
-  const d1name = document.getElementById('ds1-name').value
-  const d2name = document.getElementById('ds2-name').value
-  const c1 = document.getElementById('ds1-color').value
-  const c2 = document.getElementById('ds2-color').value
-  const showLegend = document.getElementById('show-legend').checked
-  const smooth = document.getElementById('smooth-lines').checked
-  const isPolar = ['pie','doughnut','polarArea'].includes(chartType)
-  const isRadar = chartType === 'radar'
-
-  if(engine==='chartjs') renderChartJS(title,labels,d1vals,d2vals,d1name,d2name,c1,c2,showLegend,smooth,isPolar,isRadar)
-  else renderECharts(title,labels,d1vals,d2vals,d1name,d2name,c1,c2,showLegend,smooth,isPolar)
-
-  document.getElementById('chart-info').textContent = `${d1vals.length} data points · ${engine==='echarts'?'ECharts':'Chart.js'}`
+function getData(){
+  const labels=parse(g('labels').value)
+  const d1=parseNums(g('ds1').value), d2=parseNums(g('ds2').value)
+  const d1n=g('ds1n').value, d2n=g('ds2n').value
+  const c1=g('ds1c').value, c2=g('ds2c').value
+  return{labels,d1,d2,d1n,d2n,c1,c2}
 }
 
-function renderChartJS(title,labels,d1,d2,d1n,d2n,c1,c2,legend,smooth,isPolar,isRadar){
-  if(chartInst){ chartInst.destroy(); chartInst=null }
-  const ctx = document.getElementById('chartjs-canvas').getContext('2d')
-  const datasets = [{
-    label:d1n, data:d1,
-    backgroundColor: isPolar||isRadar ? COLORS.slice(0,labels.length).map(c=>c+'bb') : c1+'cc',
-    borderColor: isPolar||isRadar ? COLORS.slice(0,labels.length) : c1,
-    borderWidth:2, fill:false, tension:smooth?0.4:0, pointRadius:3,
+function update(){
+  if(engine==='dashboard'){renderDashboard();return}
+  const{labels,d1,d2,d1n,d2n,c1,c2}=getData()
+  g('sb-points').textContent=`${d1.length} data points`
+  g('chart-info').textContent=`${labels.length} labels · ${d2.length?2:1} dataset${d2.length?'s':''}`
+  if(engine==='chartjs') renderChartJS(labels,d1,d2,d1n,d2n,c1,c2)
+  else if(engine==='echarts') renderECharts(labels,d1,d2,d1n,d2n,c1,c2)
+  else if(engine==='plotly') renderPlotly(labels,d1,d2,d1n,d2n,c1,c2)
+  else if(engine==='d3') renderD3(labels,d1,d2,d1n,d2n,c1,c2)
+}
+
+function renderChartJS(labels,d1,d2,d1n,d2n,c1,c2){
+  if(chartInst){chartInst.destroy();chartInst=null}
+  const title=g('chart-title').value
+  const legend=g('show-legend').checked, smooth=g('smooth').checked
+  const fill=g('fill-area').checked, anim=g('animation').checked
+  const isPolar=['pie','doughnut','polarArea'].includes(chartType), isRadar=chartType==='radar'
+  const bgColors=COLORS.slice(0,labels.length).map(c=>c+'bb')
+  const datasets=[{
+    label:d1n,data:d1,
+    backgroundColor:isPolar||isRadar?bgColors:c1+'cc',
+    borderColor:isPolar||isRadar?COLORS.slice(0,labels.length):c1,
+    borderWidth:2,fill:fill||chartType==='area',tension:smooth?.4:0,pointRadius:3,
   }]
-  if(d2.length&&!isPolar&&!isRadar) datasets.push({
-    label:d2n, data:d2,
-    backgroundColor:c2+'cc', borderColor:c2,
-    borderWidth:2, fill:false, tension:smooth?0.4:0, pointRadius:3,
-  })
-
-  chartInst = new Chart(ctx, {
-    type: chartType,
-    data: { labels, datasets },
-    options: {
-      responsive:true, maintainAspectRatio:true, animation:{duration:400},
-      plugins:{
-        legend:{ display:legend, labels:{color:'#a8b5cc',font:{size:12}} },
-        title:{ display:!!title, text:title, color:'#f0f4ff', font:{size:15,weight:'bold'} },
-      },
-      scales: (isPolar||isRadar)?{}:{
-        x:{ ticks:{color:'#64748b'}, grid:{color:'rgba(255,255,255,.04)'}, title:{display:!!document.getElementById('x-label').value,text:document.getElementById('x-label').value,color:'#64748b'} },
-        y:{ ticks:{color:'#64748b'}, grid:{color:'rgba(255,255,255,.06)'}, title:{display:!!document.getElementById('y-label').value,text:document.getElementById('y-label').value,color:'#64748b'} },
-      },
+  if(d2.length&&!isPolar&&!isRadar) datasets.push({label:d2n,data:d2,backgroundColor:c2+'cc',borderColor:c2,borderWidth:2,fill:false,tension:smooth?.4:0,pointRadius:3})
+  chartInst=new Chart(g('chartjs-canvas').getContext('2d'),{
+    type:chartType==='area'?'line':chartType,data:{labels,datasets},
+    options:{responsive:true,maintainAspectRatio:true,animation:{duration:anim?500:0},
+      plugins:{legend:{display:legend,labels:{color:'#a8b5cc',font:{size:12}}},title:{display:!!title,text:title,color:'#f0f4ff',font:{size:15,weight:'bold'}}},
+      scales:(isPolar||isRadar)?{}:{
+        x:{ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.04)'},title:{display:!!g('x-label').value,text:g('x-label').value,color:'#64748b'}},
+        y:{ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.06)'},title:{display:!!g('y-label').value,text:g('y-label').value,color:'#64748b'}},
+      }
     }
   })
 }
 
-function renderECharts(title,labels,d1,d2,d1n,d2n,c1,c2,legend,smooth,isPolar){
-  const el = document.getElementById('echarts-div')
-  if(!echartsInst) echartsInst = echarts.init(el, 'dark', {backgroundColor:'#090c13'})
-  const series = [{name:d1n,type:chartType==='bar'?'bar':chartType==='line'?'line':'bar',data:d1,smooth,itemStyle:{color:c1},areaStyle:chartType==='line'?{color:c1+'22'}:null}]
-  if(d2.length&&!isPolar) series.push({name:d2n,type:chartType==='bar'?'bar':'line',data:d2,smooth,itemStyle:{color:c2}})
-
+function renderECharts(labels,d1,d2,d1n,d2n,c1,c2){
+  const el=g('echarts-div')
+  if(!echartsInst) echartsInst=echarts.init(el,'dark',{backgroundColor:'#090c13'})
+  const anim=g('animation').checked
+  const title=g('chart-title').value
+  const seriesMap={
+    bar:{type:'bar'},line:{type:'line',smooth:g('smooth').checked},
+    pie:{type:'pie',radius:['40%','70%'],label:{show:true}},
+    scatter:{type:'scatter'},radar:{type:'radar'},
+    heatmap:{type:'heatmap'},treemap:{type:'treemap'},gauge:{type:'gauge'},
+  }
+  const serType=seriesMap[chartType]||{type:'bar'}
+  const isPolar=chartType==='pie'
+  const series=[{...serType,name:d1n,data:isPolar?labels.map((l,i)=>({name:l,value:d1[i]})):d1,itemStyle:{color:c1}}]
+  if(d2.length&&!isPolar) series.push({...serType,name:d2n,data:d2,itemStyle:{color:c2}})
   echartsInst.setOption({
-    title:{text:title,textStyle:{color:'#f0f4ff',fontSize:15}},
-    backgroundColor:'#090c13',
+    backgroundColor:'#090c13',animation:anim,animationDuration:600,
+    title:{text:title,textStyle:{color:'#f0f4ff',fontSize:14},top:8,left:'center'},
     tooltip:{trigger:'axis',backgroundColor:'#1a2235',borderColor:'rgba(255,255,255,.1)',textStyle:{color:'#f0f4ff'}},
-    legend:{show:legend,textStyle:{color:'#a8b5cc'},top:'bottom'},
-    grid:{left:'3%',right:'4%',bottom:'12%',containLabel:true},
+    legend:{show:g('show-legend').checked,textStyle:{color:'#a8b5cc'},bottom:4},
+    grid:{left:'3%',right:'4%',bottom:'12%',top:'14%',containLabel:true},
     xAxis:{type:'category',data:labels,axisLabel:{color:'#64748b'},axisLine:{lineStyle:{color:'rgba(255,255,255,.07)'}},splitLine:{lineStyle:{color:'rgba(255,255,255,.04)'}}},
-    yAxis:{type:'value',name:document.getElementById('y-label').value,nameTextStyle:{color:'#64748b'},axisLabel:{color:'#64748b'},axisLine:{lineStyle:{color:'rgba(255,255,255,.07)'}},splitLine:{lineStyle:{color:'rgba(255,255,255,.05)'}}},
-    series, animation:true, animationDuration:400,
+    yAxis:{type:'value',name:g('y-label').value,nameTextStyle:{color:'#64748b'},axisLabel:{color:'#64748b'},splitLine:{lineStyle:{color:'rgba(255,255,255,.05)'}}},
+    series,
   })
+  window.addEventListener('resize',()=>echartsInst?.resize())
 }
 
+function renderPlotly(labels,d1,d2,d1n,d2n,c1,c2){
+  const el=g('plotly-div')
+  const typeMap={bar:'bar',line:'scatter',pie:'pie',scatter:'scatter',area:'scatter'}
+  const mode={bar:undefined,line:'lines+markers',scatter:'markers',area:'lines',pie:undefined}
+  const fill={area:'tozeroy'}
+  const traces=[{
+    x:chartType==='pie'?labels:labels,y:chartType==='pie'?d1:d1,
+    type:typeMap[chartType]||'bar',mode:mode[chartType],fill:fill[chartType],
+    name:d1n,marker:{color:c1},line:{color:c1,width:2},
+    ...(chartType==='pie'?{labels:labels,values:d1,hole:.4}:{})
+  }]
+  if(d2.length&&chartType!=='pie') traces.push({x:labels,y:d2,type:typeMap[chartType]||'bar',mode:mode[chartType],name:d2n,marker:{color:c2},line:{color:c2,width:2}})
+  Plotly.newPlot(el,traces,{
+    title:{text:g('chart-title').value,font:{color:'#f0f4ff',size:14}},
+    paper_bgcolor:'#090c13',plot_bgcolor:'#0d1117',
+    font:{color:'#a8b5cc',size:11},
+    legend:{font:{color:'#a8b5cc'}},
+    xaxis:{color:'#64748b',gridcolor:'rgba(255,255,255,.05)',title:g('x-label').value},
+    yaxis:{color:'#64748b',gridcolor:'rgba(255,255,255,.05)',title:g('y-label').value},
+    margin:{t:50,b:50,l:60,r:20},
+  },{responsive:true,displayModeBar:true})
+}
+
+function renderD3(labels,d1,d2,d1n,d2n,c1,c2){
+  const el=g('d3-div'); el.innerHTML=''
+  // Load D3 on demand
+  if(!window.d3){
+    const s=document.createElement('script'); s.src='https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js'
+    s.onload=()=>renderD3(labels,d1,d2,d1n,d2n,c1,c2)
+    document.head.appendChild(s); return
+  }
+  const W=el.offsetWidth||600, H=el.offsetHeight||400
+  const margin={top:40,right:30,bottom:50,left:60}
+  const iw=W-margin.left-margin.right, ih=H-margin.top-margin.bottom
+  const svg=d3.select(el).append('svg').attr('width',W).attr('height',H)
+  const g2=svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`)
+  const x=d3.scaleBand().domain(labels).range([0,iw]).padding(.2)
+  const y=d3.scaleLinear().domain([0,d3.max([...d1,...d2.filter(Boolean)])*1.1]).range([ih,0])
+  g2.append('g').attr('transform',`translate(0,${ih})`).call(d3.axisBottom(x)).selectAll('text').style('fill','#64748b').style('font-size','11px')
+  g2.append('g').call(d3.axisLeft(y).ticks(5)).selectAll('text').style('fill','#64748b').style('font-size','11px')
+  g2.selectAll('.domain,.tick line').style('stroke','rgba(255,255,255,.1)')
+  const bw=d2.length?x.bandwidth()/2:x.bandwidth()
+  g2.selectAll('.bar1').data(d1).enter().append('rect').attr('x',(_,i)=>x(labels[i])).attr('y',d=>y(d)).attr('width',bw).attr('height',d=>ih-y(d)).attr('fill',c1).attr('opacity',.85).attr('rx',3)
+  if(d2.length) g2.selectAll('.bar2').data(d2).enter().append('rect').attr('x',(_,i)=>x(labels[i])+bw).attr('y',d=>y(d)).attr('width',bw).attr('height',d=>ih-y(d)).attr('fill',c2).attr('opacity',.85).attr('rx',3)
+  svg.append('text').attr('x',W/2).attr('y',22).attr('text-anchor','middle').style('fill','#f0f4ff').style('font-size','14px').style('font-weight','bold').text(g('chart-title').value)
+}
+
+function renderDashboard(){
+  const dv=g('dashboard-view'); dv.style.display='block'
+  const{labels,d1,d2,d1n,d2n,c1,c2}=getData()
+  dv.innerHTML=`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1rem;height:100%;overflow:auto">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.75rem">
+        <p style="font-size:.75rem;font-weight:600;color:var(--t2);margin-bottom:.5rem">Bar Chart</p>
+        <canvas id="dc1" style="max-height:200px"></canvas>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.75rem">
+        <p style="font-size:.75rem;font-weight:600;color:var(--t2);margin-bottom:.5rem">Line Chart</p>
+        <canvas id="dc2" style="max-height:200px"></canvas>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.75rem">
+        <p style="font-size:.75rem;font-weight:600;color:var(--t2);margin-bottom:.5rem">Pie Chart</p>
+        <canvas id="dc3" style="max-height:200px"></canvas>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.75rem">
+        <p style="font-size:.75rem;font-weight:600;color:var(--t2);margin-bottom:.5rem">Radar Chart</p>
+        <canvas id="dc4" style="max-height:200px"></canvas>
+      </div>
+    </div>`
+  const opts={animation:{duration:400},plugins:{legend:{labels:{color:'#a8b5cc',font:{size:10}}}},scales:{x:{ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.05)'}}}}
+  const ds1={label:d1n,data:d1,backgroundColor:c1+'cc',borderColor:c1,borderWidth:2,tension:.4}
+  const ds2d={label:d2n,data:d2,backgroundColor:c2+'cc',borderColor:c2,borderWidth:2,tension:.4}
+  const has2=d2.length>0
+  new Chart(g('dc1').getContext('2d'),{type:'bar',data:{labels,datasets:has2?[ds1,ds2d]:[ds1]},options:{...opts,maintainAspectRatio:false}})
+  new Chart(g('dc2').getContext('2d'),{type:'line',data:{labels,datasets:has2?[ds1,ds2d]:[ds1]},options:{...opts,maintainAspectRatio:false}})
+  new Chart(g('dc3').getContext('2d'),{type:'pie',data:{labels,datasets:[{data:d1,backgroundColor:COLORS.slice(0,labels.length).map(c=>c+'bb'),borderWidth:2}]},options:{...opts,maintainAspectRatio:false,scales:{}}})
+  new Chart(g('dc4').getContext('2d'),{type:'radar',data:{labels,datasets:[{label:d1n,data:d1,backgroundColor:c1+'33',borderColor:c1,borderWidth:2}]},options:{...opts,maintainAspectRatio:false,scales:{}}})
+}
+
+// ── CSV IMPORT ─────────────────────────────────────────────
+function importCSV(file){
+  if(!file) return
+  const reader=new FileReader()
+  reader.onload=e=>{
+    const lines=e.target.result.split('\n').filter(l=>l.trim())
+    if(lines.length<2){toast('CSV needs at least 2 rows','err');return}
+    const headers=lines[0].split(',').map(h=>h.trim().replace(/^"|"$/g,''))
+    const rows=lines.slice(1).map(l=>l.split(',').map(v=>v.trim().replace(/^"|"$/g,'')))
+    const labels=rows.map(r=>r[0]).filter(Boolean)
+    const d1=rows.map(r=>parseFloat(r[1])).filter(n=>!isNaN(n))
+    const d2=rows.map(r=>parseFloat(r[2])).filter(n=>!isNaN(n))
+    g('labels').value=labels.join(',')
+    g('ds1').value=d1.join(','); if(headers[1]) g('ds1n').value=headers[1]
+    g('ds2').value=d2.join(','); if(headers[2]) g('ds2n').value=headers[2]
+    g('import-status').textContent=`✅ ${file.name}: ${labels.length} rows, ${headers.length-1} series`
+    g('import-status').style.color='var(--green)'
+    toast(`CSV imported: ${labels.length} rows`,'ok')
+    update()
+  }
+  reader.readAsText(file)
+}
+
+function pasteJSON(){
+  const json=prompt('Paste JSON data (array of objects or {labels,datasets}):')
+  if(!json) return
+  try{
+    const data=JSON.parse(json)
+    if(data.labels&&data.datasets){
+      g('labels').value=data.labels.join(',')
+      g('ds1').value=data.datasets[0].data.join(',')
+      if(data.datasets[0].label) g('ds1n').value=data.datasets[0].label
+      if(data.datasets[1]){g('ds2').value=data.datasets[1].data.join(',');if(data.datasets[1].label) g('ds2n').value=data.datasets[1].label}
+      toast('JSON imported','ok'); update()
+    } else if(Array.isArray(data)){
+      const keys=Object.keys(data[0])
+      g('labels').value=data.map(r=>r[keys[0]]).join(',')
+      g('ds1').value=data.map(r=>r[keys[1]]).join(',')
+      if(keys[2]) g('ds2').value=data.map(r=>r[keys[2]]).join(',')
+      toast(`JSON imported: ${data.length} rows`,'ok'); update()
+    }
+  }catch{toast('Invalid JSON','err')}
+}
+
+// ── PRESETS ─────────────────────────────────────────────
+const PRESETS=[
+  {title:'Monthly Sales',labels:'Jan,Feb,Mar,Apr,May,Jun',d1:'42,78,55,91,63,84',d2:'30,55,70,45,80,60',d1n:'Product A',d2n:'Product B'},
+  {title:'Website Traffic',labels:'Mon,Tue,Wed,Thu,Fri,Sat,Sun',d1:'1200,1900,1500,2100,1800,900,600',d2:'800,1100,900,1400,1200,500,350',d1n:'Sessions',d2n:'Unique Users'},
+  {title:'Tech Stack Usage',labels:'React,Vue,Angular,Svelte,Solid,Qwik',d1:'45,25,18,7,3,2',d2:'',d1n:'Market Share %',d2n:''},
+  {title:'Performance Metrics',labels:'Load Time,FCP,LCP,CLS,FID,TTFB',d1:'1.2,0.8,1.5,0.1,0.05,0.3',d2:'2.1,1.2,2.8,0.25,0.1,0.6',d1n:'Optimised',d2n:'Baseline'},
+]
 function loadPreset(){
-  const presets = [
-    {title:'Monthly Sales',labels:'Jan,Feb,Mar,Apr,May,Jun',d1:'42,78,55,91,63,84',d2:'30,55,70,45,80,60',d1n:'Product A',d2n:'Product B'},
-    {title:'Website Traffic',labels:'Mon,Tue,Wed,Thu,Fri,Sat,Sun',d1:'1200,1900,1500,2100,1800,900,600',d2:'800,1100,900,1400,1200,500,350',d1n:'Visitors',d2n:'Unique'},
-    {title:'Tech Stack',labels:'React,Vue,Angular,Svelte,Solid',d1:'45,25,18,8,4',d2:'',d1n:'Usage %',d2n:''},
-  ]
-  const p = presets[Math.floor(Math.random()*presets.length)]
-  document.getElementById('chart-title').value=p.title
-  document.getElementById('labels').value=p.labels
-  document.getElementById('ds1-vals').value=p.d1
-  document.getElementById('ds1-name').value=p.d1n
-  document.getElementById('ds2-vals').value=p.d2
-  document.getElementById('ds2-name').value=p.d2n
-  updateChart()
-  toast('Example loaded','ok')
+  const p=PRESETS[Math.floor(Math.random()*PRESETS.length)]
+  g('chart-title').value=p.title; g('labels').value=p.labels
+  g('ds1').value=p.d1; g('ds1n').value=p.d1n
+  g('ds2').value=p.d2; g('ds2n').value=p.d2n
+  update(); toast('Example loaded','ok')
 }
 
 function copyConfig(){
-  const cfg={type:chartType,labels:parseLabels(document.getElementById('labels').value),datasets:[{label:document.getElementById('ds1-name').value,data:parseNums(document.getElementById('ds1-vals').value)}]}
+  const cfg={type:chartType,labels:parse(g('labels').value),datasets:[{label:g('ds1n').value,data:parseNums(g('ds1').value),color:g('ds1c').value}]}
+  if(parseNums(g('ds2').value).length) cfg.datasets.push({label:g('ds2n').value,data:parseNums(g('ds2').value),color:g('ds2c').value})
   navigator.clipboard.writeText(JSON.stringify(cfg,null,2)).then(()=>toast('Config copied','ok'))
 }
 
 function downloadPNG(){
-  if(engine==='chartjs'){
-    const a=document.createElement('a'); a.download='chart.png'
-    a.href=document.getElementById('chartjs-canvas').toDataURL(); a.click()
-  } else if(echartsInst){
-    const a=document.createElement('a'); a.download='chart.png'
-    a.href=echartsInst.getDataURL({type:'png',pixelRatio:2,backgroundColor:'#090c13'}); a.click()
-  }
+  const canvas=g('chartjs-canvas')
+  if(engine==='chartjs'&&canvas.style.display!=='none'){
+    const a=document.createElement('a'); a.download='chart.png'; a.href=canvas.toDataURL('image/png',1); a.click()
+  } else if(engine==='echarts'&&echartsInst){
+    const a=document.createElement('a'); a.download='chart.png'; a.href=echartsInst.getDataURL({type:'png',pixelRatio:2,backgroundColor:'#090c13'}); a.click()
+  } else if(engine==='plotly'){
+    Plotly.downloadImage(g('plotly-div'),{format:'png',width:1200,height:800,filename:'chart'})
+  } else { toast('Switch to Chart.js or ECharts for PNG export','info'); return }
   toast('Chart downloaded','ok')
 }
 
+window.addEventListener('resize',()=>echartsInst?.resize())
+
 function toast(msg,type=''){
   const el=document.createElement('div'); el.className='toast'+(type?' '+type:''); el.textContent=msg
-  document.getElementById('toasts').appendChild(el); setTimeout(()=>el.remove(),2800)
+  g('toasts').appendChild(el); setTimeout(()=>el.remove(),2800)
 }
 
-// Resize ECharts on window resize
-window.addEventListener('resize',()=>{ if(echartsInst) echartsInst.resize() })
-
-updateChart()
+update()
 </script>
 </body>
 </html>
