@@ -211,23 +211,7 @@ function setType(t,el){
   document.querySelectorAll('.ct').forEach(c=>c.classList.remove('active'))
   el.classList.add('active')
   g('sb-type').textContent=t
-
-  // gauge, heatmap, treemap only work in ECharts — auto-switch engine
-  const echartsOnly=['gauge','heatmap','treemap']
-  if(echartsOnly.includes(t) && engine!=='echarts') {
-    engine='echarts'
-    document.querySelectorAll('.et').forEach(x=>x.classList.remove('active'))
-    const eBtn = Array.from(document.querySelectorAll('.et')).find(b=>b.textContent.includes('ECharts'))
-    if(eBtn) eBtn.classList.add('active')
-    g('sb-engine').textContent='Apache ECharts v5'
-    g('chartjs-canvas').style.display='none'
-    g('echarts-div').style.display='block'
-    g('plotly-div').style.display='none'
-    g('d3-div').style.display='none'
-    g('dashboard-view').style.display='none'
-    toast('Gauge/Heatmap/Treemap use Apache ECharts engine','info')
-  }
-  update()
+  update()  // update() handles engine routing internally
 }
 
 function getData(){
@@ -243,19 +227,45 @@ function update(){
   const{labels,d1,d2,d1n,d2n,c1,c2}=getData()
   g('sb-points').textContent=`${d1.length} data points`
   g('chart-info').textContent=`${labels.length} labels · ${d2.length?2:1} dataset${d2.length?'s':''}`
-  if(engine==='chartjs') renderChartJS(labels,d1,d2,d1n,d2n,c1,c2)
-  else if(engine==='echarts') renderECharts(labels,d1,d2,d1n,d2n,c1,c2)
-  else if(engine==='plotly') renderPlotly(labels,d1,d2,d1n,d2n,c1,c2)
-  else if(engine==='d3') renderD3(labels,d1,d2,d1n,d2n,c1,c2)
+
+  // Route to correct engine based on chart type compatibility
+  const chartjsTypes=['bar','line','pie','doughnut','radar','scatter','bubble','polarArea','area']
+  const echartsOnly=['gauge','heatmap','treemap']
+
+  if(echartsOnly.includes(chartType)){
+    // Force ECharts for gauge/heatmap/treemap
+    if(engine!=='echarts'){
+      engine='echarts'
+      document.querySelectorAll('.et').forEach(x=>x.classList.remove('active'))
+      const eBtn=Array.from(document.querySelectorAll('.et')).find(b=>b.textContent.includes('ECharts'))
+      if(eBtn)eBtn.classList.add('active')
+      g('sb-engine').textContent='Apache ECharts v5'
+      g('chartjs-canvas').style.display='none'
+      g('plotly-div').style.display='none'
+      g('d3-div').style.display='none'
+      g('dashboard-view').style.display='none'
+      g('echarts-div').style.display='block'
+      if(chartInst){try{chartInst.destroy()}catch(e){}chartInst=null}
+    }
+    renderECharts(labels,d1,d2,d1n,d2n,c1,c2)
+  } else if(engine==='chartjs'){
+    renderChartJS(labels,d1,d2,d1n,d2n,c1,c2)
+  } else if(engine==='echarts'){
+    renderECharts(labels,d1,d2,d1n,d2n,c1,c2)
+  } else if(engine==='plotly'){
+    renderPlotly(labels,d1,d2,d1n,d2n,c1,c2)
+  } else if(engine==='d3'){
+    renderD3(labels,d1,d2,d1n,d2n,c1,c2)
+  }
 }
 
 function renderChartJS(labels,d1,d2,d1n,d2n,c1,c2){
   // Destroy existing instance properly
   if(chartInst){
-    chartInst.destroy()
+    try{chartInst.destroy()}catch(e){}
     chartInst=null
   }
-  // Replace canvas element to guarantee clean slate (avoids "Canvas is already in use")
+  // Replace canvas element to guarantee clean slate
   const wrap = g('chartjs-canvas').parentElement
   const oldCanvas = g('chartjs-canvas')
   const newCanvas = document.createElement('canvas')
@@ -267,20 +277,80 @@ function renderChartJS(labels,d1,d2,d1n,d2n,c1,c2){
   const title=g('chart-title').value
   const legend=g('show-legend').checked, smooth=g('smooth').checked
   const fill=g('fill-area').checked, anim=g('animation').checked
-  const isPolar=['pie','doughnut','polarArea'].includes(chartType), isRadar=chartType==='radar'
+  const isPolar=['pie','doughnut','polarArea'].includes(chartType)
+  const isRadar=chartType==='radar'
+  const isScatter=chartType==='scatter'
+  const isBubble=chartType==='bubble'
   const bgColors=COLORS.slice(0,labels.length).map(c=>c+'bb')
-  const datasets=[{
-    label:d1n,data:d1,
-    backgroundColor:isPolar||isRadar?bgColors:c1+'cc',
-    borderColor:isPolar||isRadar?COLORS.slice(0,labels.length):c1,
-    borderWidth:2,fill:fill||chartType==='area',tension:smooth?.4:0,pointRadius:3,
-  }]
-  if(d2.length&&!isPolar&&!isRadar) datasets.push({label:d2n,data:d2,backgroundColor:c2+'cc',borderColor:c2,borderWidth:2,fill:false,tension:smooth?.4:0,pointRadius:3})
+
+  // For scatter/bubble: convert simple arrays to {x,y} pairs
+  let chartDataType = chartType
+  let datasets
+
+  if(isScatter){
+    // Scatter: x=index, y=value
+    chartDataType='scatter'
+    datasets=[{
+      label:d1n,
+      data:d1.map((v,i)=>({x:i,y:v})),
+      backgroundColor:c1+'cc',
+      borderColor:c1,
+      borderWidth:2,
+      pointRadius:5,
+    }]
+    if(d2.length){
+      datasets.push({
+        label:d2n,
+        data:d2.map((v,i)=>({x:i,y:v})),
+        backgroundColor:c2+'cc',
+        borderColor:c2,
+        borderWidth:2,
+        pointRadius:5,
+      })
+    }
+  } else if(isBubble){
+    // Bubble: x=index, y=value, r=scaled value
+    chartDataType='bubble'
+    const maxVal=Math.max(...d1,...d2,1)
+    datasets=[{
+      label:d1n,
+      data:d1.map((v,i)=>({x:i,y:v,r:Math.max(3,(v/maxVal)*20)})),
+      backgroundColor:c1+'66',
+      borderColor:c1,
+      borderWidth:2,
+    }]
+    if(d2.length){
+      datasets.push({
+        label:d2n,
+        data:d2.map((v,i)=>({x:i,y:v,r:Math.max(3,(v/maxVal)*20)})),
+        backgroundColor:c2+'66',
+        borderColor:c2,
+        borderWidth:2,
+      })
+    }
+  } else {
+    // Standard bar/line/pie/doughnut/radar/polarArea/area
+    chartDataType=chartType==='area'?'line':chartType
+    datasets=[{
+      label:d1n,data:d1,
+      backgroundColor:isPolar||isRadar?bgColors:c1+'cc',
+      borderColor:isPolar||isRadar?COLORS.slice(0,labels.length):c1,
+      borderWidth:2,fill:fill||chartType==='area',tension:smooth?.4:0,pointRadius:3,
+    }]
+    if(d2.length&&!isPolar&&!isRadar) datasets.push({label:d2n,data:d2,backgroundColor:c2+'cc',borderColor:c2,borderWidth:2,fill:false,tension:smooth?.4:0,pointRadius:3})
+  }
+
+  // Scatter and bubble need linear X axis, not category
+  const needsLinearX = isScatter || isBubble
+
   chartInst=new Chart(newCanvas.getContext('2d'),{
-    type:chartType==='area'?'line':chartType,data:{labels,datasets},
+    type:chartDataType,data:{labels,datasets},
     options:{responsive:true,maintainAspectRatio:true,animation:{duration:anim?500:0},
       plugins:{legend:{display:legend,labels:{color:'#a8b5cc',font:{size:12}}},title:{display:!!title,text:title,color:'#f0f4ff',font:{size:15,weight:'bold'}}},
-      scales:(isPolar||isRadar)?{}:{
+      scales:(isPolar||isRadar)?{}:needsLinearX?{
+        x:{type:'linear',position:'bottom',ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.04)'}},
+        y:{ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.06)'}},
+      }:{
         x:{ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.04)'},title:{display:!!g('x-label').value,text:g('x-label').value,color:'#64748b'}},
         y:{ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.06)'},title:{display:!!g('y-label').value,text:g('y-label').value,color:'#64748b'}},
       }
