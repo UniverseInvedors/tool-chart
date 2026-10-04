@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Chart Studio — Chart.js + ECharts + Plotly + D3 | CSV Import | Dashboard Builder | Universe Invedors</title>
+<title>Chart Studio � Chart.js + ECharts + Plotly + D3 | CSV Import | Dashboard Builder | Universe Invedors</title>
 <meta name="description" content="Professional online chart builder. Chart.js, Apache ECharts, Plotly.js and D3.js engines. Import CSV/JSON data. Build dashboards. 20+ chart types. Export PNG/SVG."/>
 <meta name="keywords" content="online chart maker,data visualization tool,Chart.js online,Apache ECharts,Plotly online,D3.js chart,CSV chart maker,dashboard builder free"/>
 <link rel="canonical" href="https://chart.universeinvedors.tech/"/><meta name="robots" content="index,follow"/><meta name="author" content="Universe Invedors"/>
-<meta property="og:title" content="Chart Studio — Chart.js, ECharts, Plotly, D3 — Free Online Data Visualization"/><meta property="og:url" content="https://chart.universeinvedors.tech/"/><meta property="og:type" content="website"/><meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/><meta property="og:site_name" content="Universe Invedors Tools"/>
+<meta property="og:title" content="Chart Studio � Chart.js, ECharts, Plotly, D3 � Free Online Data Visualization"/><meta property="og:url" content="https://chart.universeinvedors.tech/"/><meta property="og:type" content="website"/><meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/><meta property="og:site_name" content="Universe Invedors Tools"/>
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg"/>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any"/><meta name="theme-color" content="#090c13"/>
 <meta name="google-adsense-account" content="ca-pub-8759032363251002"/>
@@ -21,81 +21,108 @@ function gaEvent(action,category,label,value){gtag('event',action,{event_categor
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#090c13;--surf:#0d1117;--elev:#141b28;--card:#1a2235;--inp:#111827;--t1:#f0f4ff;--t2:#a8b5cc;--t3:#64748b;--t4:#3d4f6e;--acc:#06b6d4;--acc-h:#22d3ee;--acc-glow:rgba(6,182,212,.22);--green:#10b981;--violet:#8b5cf6;--blue:#3b82f6;--orange:#f97316;--border:rgba(255,255,255,.07);--bh:rgba(255,255,255,.13);--font:'Inter',-apple-system,sans-serif;--mono:'JetBrains Mono',Consolas,monospace;--r:8px;--th:50px;--sw:280px;--tr:160ms cubic-bezier(.4,0,.2,1)}
-html{font-size:16px}body{font-family:var(--font);background:var(--bg);color:var(--t1);height:100dvh;display:flex;flex-direction:column;overflow:hidden;-webkit-font-smoothing:antialiased}
-::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
-.topbar{height:var(--th);background:rgba(9,12,19,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem;padding:0 .85rem;flex-shrink:0;z-index:200}
-.logo{font-size:.82rem;font-weight:700;color:var(--t1);text-decoration:none;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:.4rem}.logo:hover{color:var(--acc-h);text-decoration:none}
-.etabs{display:flex;gap:.1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:3px;flex-shrink:1;overflow-x:auto}
-.et{padding:.26rem .65rem;border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--t3);white-space:nowrap;transition:all var(--tr)}.et:hover{background:rgba(255,255,255,.06);color:var(--t2)}.et.active{background:var(--acc);color:#000;box-shadow:0 0 10px var(--acc-glow)}
-.sp{flex:1}
-.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.32rem .75rem;border-radius:var(--r);font-size:.73rem;font-weight:600;cursor:pointer;border:none;transition:all var(--tr);white-space:nowrap}
-.bg{background:rgba(255,255,255,.05);color:var(--t2);border:1px solid var(--border)}.bg:hover{background:rgba(255,255,255,.09);border-color:var(--bh);color:var(--t1)}
-.bp{background:var(--acc);color:#000}.bp:hover{background:var(--acc-h)}
-.bsm{padding:.22rem .55rem;font-size:.68rem}
-/* Layout */
-.main{display:flex;flex:1;overflow:hidden}
-.sidebar{width:var(--sw);background:var(--surf);border-right:1px solid var(--border);overflow-y:auto;padding:.65rem .55rem;flex-shrink:0;display:flex;flex-direction:column;gap:.55rem}
-.sec{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t4);padding:.4rem .3rem .1rem;margin-top:.1rem}
-/* Chart type grid */
-.ct-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.28rem}
-.ct{padding:.38rem .2rem;border-radius:7px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:.68rem;font-weight:600;color:var(--t3);text-align:center;transition:all var(--tr);display:flex;flex-direction:column;align-items:center;gap:.18rem}
-.ct:hover{background:rgba(6,182,212,.08);border-color:rgba(6,182,212,.25)}.ct.active{background:rgba(6,182,212,.14);border-color:rgba(6,182,212,.4);color:var(--acc-h)}
-.ct-icon{font-size:1rem}
-/* Form fields */
-.fl{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--t3);margin-bottom:.28rem;display:block}
-.fi,.fs{width:100%;padding:.4rem .65rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.8rem;font-family:var(--font);outline:none;transition:border-color var(--tr);margin-bottom:.55rem}
-.fi:focus,.fs:focus{border-color:rgba(6,182,212,.45)}
-.fta{width:100%;padding:.5rem .65rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-family:var(--mono);font-size:.75rem;resize:vertical;min-height:60px;outline:none;margin-bottom:.55rem;line-height:1.5}
-.fta:focus{border-color:rgba(6,182,212,.45)}
-/* Dataset */
-.ds-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.6rem;margin-bottom:.4rem}
-.ds-header{display:flex;align-items:center;gap:.4rem;margin-bottom:.4rem}
-.ds-color{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);cursor:pointer;padding:.15rem;background:transparent;flex-shrink:0}
-/* Chart area */
-.chart-area{flex:1;display:flex;flex-direction:column;overflow:hidden}
-.ph{display:flex;align-items:center;gap:.5rem;padding:.35rem .75rem;background:var(--surf);border-bottom:1px solid var(--border);font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);flex-shrink:0}
-.pd{width:6px;height:6px;border-radius:50%;background:var(--acc)}
-.phr{margin-left:auto;display:flex;gap:.3rem}
-.chart-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:1.5rem;overflow:hidden;background:rgba(255,255,255,.01)}
-#chartjs-canvas{max-width:100%;max-height:100%}
-#echarts-div,#plotly-div{width:100%;height:100%;display:none}
-/* CSV import */
-.import-area{padding:.6rem;background:var(--card);border:1px solid rgba(6,182,212,.2);border-radius:var(--r)}
-.import-title{font-size:.72rem;font-weight:700;color:var(--acc-h);margin-bottom:.4rem}
-/* Dashboard mode */
-.dashboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1rem;flex:1;overflow:auto}
-.dash-cell{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.65rem;position:relative}
-.dash-cell-title{font-size:.75rem;font-weight:600;color:var(--t2);margin-bottom:.5rem}
-.statusbar{display:flex;align-items:center;gap:.75rem;padding:.22rem .75rem;background:var(--surf);border-top:1px solid var(--border);font-size:.67rem;color:var(--t3);flex-shrink:0}
-.seo-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem .75rem;padding:.35rem .75rem;border-top:1px solid var(--border);background:var(--surf);font-size:.65rem;color:var(--t3);flex-shrink:0}
-.seo-footer a{color:var(--t3)}.seo-footer a:hover{color:var(--t2)}.sf-links{display:flex;flex-wrap:wrap;gap:.2rem .6rem}
-.toasts{position:fixed;bottom:2.5rem;right:1rem;z-index:999;display:flex;flex-direction:column;gap:.4rem;pointer-events:none}
-.toast{padding:.5rem .85rem;border-radius:var(--r);font-size:.75rem;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--t1);box-shadow:0 6px 24px rgba(0,0,0,.5);animation:tin .2s ease}
-.toast.ok{border-color:rgba(16,185,129,.35);color:var(--green)}.toast.err{border-color:rgba(239,68,68,.35);color:#f87171}.toast.info{border-color:rgba(6,182,212,.35);color:var(--acc-h)}
-@keyframes tin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:768px){.sidebar{display:none}}
-</style>
+:root{
+  --bg-base:#03050a;--bg-surface:#080d15;--bg-elevated:#0d1421;--bg-card:#111b2e;--bg-input:#0d1421;
+  --text-1:#f0f4ff;--text-2:#a8b8cf;--text-3:#5a6a82;--text-4:#2e3d54;
+  --accent:#3b82f6;--accent-light:#60a5fa;--accent-subtle:rgba(59,130,246,.12);
+  --accent-border:rgba(59,130,246,.30);--accent-glow:rgba(59,130,246,.22);
+  --green:#10b981;--red:#ef4444;--yellow:#f59e0b;--cyan:#06b6d4;--violet:#8b5cf6;
+  --border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--border-focus:rgba(59,130,246,.50);
+  --shadow-md:0 4px 16px rgba(0,0,0,.50);--shadow-lg:0 12px 40px rgba(0,0,0,.60);
+  --font-sans:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',Consolas,monospace;
+  --r-sm:6px;--r-md:10px;--r-lg:14px;--r-xl:18px;
+  --topbar-h:52px;--t:180ms cubic-bezier(.4,0,.2,1);
+}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-sans);background:var(--bg-base);color:var(--text-1);height:100dvh;display:flex;flex-direction:column;overflow:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.10);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.20)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--r-sm)}
+/* TOPBAR */
+.topbar{height:var(--topbar-h);background:rgba(3,5,10,.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;padding:0 1rem;flex-shrink:0;z-index:300}
+.topbar-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--text-1);flex-shrink:0;transition:opacity var(--t)}
+.topbar-logo:hover{opacity:.8;text-decoration:none}
+.topbar-logo-mark{width:26px;height:26px;border-radius:var(--r-sm);background:linear-gradient(135deg,#3b82f6,#06b6d4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.topbar-logo-mark svg{width:14px;height:14px}
+.topbar-logo-text{display:flex;flex-direction:column;line-height:1}
+.topbar-logo-company{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--text-1)}
+.topbar-logo-tool{font-size:.67rem;font-weight:500;color:var(--text-3);margin-top:1px}
+.topbar-sep{width:1px;height:18px;background:var(--border);flex-shrink:0}
+.topbar-spacer,.sp{flex:1}
+.badge-free{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .55rem;border-radius:9999px;font-size:.67rem;font-weight:700;background:rgba(16,185,129,.10);color:var(--green);border:1px solid rgba(16,185,129,.22)}
+/* ENGINE TABS */
+.etabs{display:flex;gap:.1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r-md);padding:2px;overflow-x:auto;flex-shrink:1}
+.et{display:inline-flex;align-items:center;gap:.3rem;padding:.26rem .7rem;border-radius:7px;font-size:.73rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text-3);white-space:nowrap;transition:all var(--t)}
+.et:hover{background:rgba(255,255,255,.06);color:var(--text-2)}
+.et.active{background:var(--accent);color:#fff;box-shadow:0 0 12px var(--accent-glow)}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.38rem .85rem;border-radius:var(--r-md);font-size:.78rem;font-weight:600;cursor:pointer;border:none;transition:all var(--t);white-space:nowrap;font-family:var(--font-sans)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:14px;height:14px;flex-shrink:0}
+.bg,.btn-ghost{background:rgba(255,255,255,.05);color:var(--text-2);border:1px solid var(--border)}
+.bg:hover,.btn-ghost:hover{background:rgba(255,255,255,.09);border-color:var(--border-hover);color:var(--text-1)}
+.bp,.btn-primary{background:var(--accent);color:#fff;box-shadow:0 2px 8px var(--accent-glow)}
+.bp:hover,.btn-primary:hover{background:var(--accent-light);box-shadow:0 4px 20px var(--accent-glow)}
+.bgr,.btn-success{background:var(--green);color:#000}
+.bgr:hover,.btn-success:hover{background:#0ea371}
+.bsm,.btn-sm{padding:.28rem .65rem;font-size:.72rem}
+.btn-violet{background:var(--violet);color:#fff}.btn-violet:hover{background:#7c3aed}
+.btn:disabled,.btn[disabled]{opacity:.4;cursor:not-allowed}
+/* PANES */
+.pane{display:flex;flex-direction:column;overflow:hidden}
+.pane-head,.ph{display:flex;align-items:center;gap:.5rem;padding:.42rem 1rem;background:var(--bg-surface);border-bottom:1px solid var(--border);font-size:.69rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);flex-shrink:0}
+.pd,.pane-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.phr,.pane-actions{margin-left:auto;display:flex;gap:.3rem}
+/* FORM */
+.fl,.field-label{font-size:.71rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3);margin-bottom:.3rem;display:block}
+.fi,input[type=text],input[type=number],select,textarea{width:100%;padding:.45rem .7rem;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--r-md);color:var(--text-1);font-size:.84rem;font-family:var(--font-sans);outline:none;transition:border-color var(--t),box-shadow var(--t)}
+.fi:focus,input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,.10)}
+select option{background:var(--bg-elevated)}
+input[type=range]{accent-color:var(--accent);width:100%}
+/* CARDS */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.1rem 1.25rem}
+.card:hover{border-color:var(--border-hover)}
+/* TOASTS */
+.toasts{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:flex;flex-direction:column;gap:.45rem;pointer-events:none}
+.toast{display:flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border-radius:var(--r-md);font-size:.8rem;font-weight:600;background:var(--bg-card);border:1px solid var(--border);color:var(--text-1);box-shadow:var(--shadow-lg);animation:toastIn .22s ease;pointer-events:auto}
+.toast.ok{border-color:rgba(16,185,129,.35);color:var(--green)}.toast.err{border-color:rgba(239,68,68,.35);color:#f87171}.toast.info{border-color:var(--accent-border);color:var(--accent-light)}
+@keyframes toastIn{from{opacity:0;transform:translateY(8px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+/* SEO FOOTER */
+.seo-footer,.tool-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4rem .9rem;padding:.6rem 1rem;border-top:1px solid var(--border);background:var(--bg-surface);font-size:.7rem;color:var(--text-3);flex-shrink:0}
+.seo-footer a,.tool-footer a{color:var(--text-3)}.seo-footer a:hover,.tool-footer a:hover{color:var(--text-2);text-decoration:none}
+.sf-links,.tool-footer-links{display:flex;flex-wrap:wrap;gap:.25rem .65rem}
 </head>
 <body>
 <header class="topbar">
-  <a href="https://universeinvedors.tech/tools" class="logo">📊 <span style="color:var(--acc-h)">Chart Studio</span></a>
+  <a href="https://universeinvedors.tech/tools" class="topbar-logo" aria-label="All Tools">
+    <div class="topbar-logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+    </div>
+    <div class="topbar-logo-text">
+      <span class="topbar-logo-company">Universe Invedors</span>
+      <span class="topbar-logo-tool">Chart Studio</span>
+    </div>
+  </a>
+  <div class="topbar-sep"></div>
   <div class="etabs">
     <button class="et active" onclick="setEngine('chartjs',this)">Chart.js v4</button>
     <button class="et" onclick="setEngine('echarts',this)">Apache ECharts</button>
     <button class="et" onclick="setEngine('plotly',this)">Plotly.js</button>
     <button class="et" onclick="setEngine('d3',this)">D3.js</button>
-    <button class="et" onclick="setEngine('dashboard',this)">📊 Dashboard</button>
+    <button class="et" onclick="setEngine('dashboard',this)">?? Dashboard</button>
   </div>
   <div class="sp"></div>
   <div style="display:flex;gap:.4rem">
-    <button class="btn bg bsm" onclick="document.getElementById('csv-file').click()">📂 Import CSV</button>
-    <button class="btn bg bsm" onclick="pasteJSON()">📋 Paste JSON</button>
-    <button class="btn bg bsm" onclick="loadPreset()">🎲 Example</button>
+    <button class="btn bg bsm" onclick="document.getElementById('csv-file').click()">?? Import CSV</button>
+    <button class="btn bg bsm" onclick="pasteJSON()">?? Paste JSON</button>
+    <button class="btn bg bsm" onclick="loadPreset()">?? Example</button>
     <button class="btn bg bsm" onclick="copyConfig()">Copy Config</button>
-    <button class="btn bp bsm" onclick="downloadPNG()">↓ PNG</button>
+    <button class="btn bp bsm" onclick="downloadPNG()">? PNG</button>
   </div>
   <input type="file" id="csv-file" accept=".csv,.txt" style="display:none" onchange="importCSV(this.files[0])">
 </header>
@@ -104,18 +131,18 @@ html{font-size:16px}body{font-family:var(--font);background:var(--bg);color:var(
   <aside class="sidebar">
     <div class="sec">Chart Type</div>
     <div class="ct-grid" id="ct-grid">
-      <div class="ct active" onclick="setType('bar',this)"><span class="ct-icon">▊</span>Bar</div>
-      <div class="ct" onclick="setType('line',this)"><span class="ct-icon">╱</span>Line</div>
-      <div class="ct" onclick="setType('pie',this)"><span class="ct-icon">◕</span>Pie</div>
-      <div class="ct" onclick="setType('doughnut',this)"><span class="ct-icon">○</span>Ring</div>
-      <div class="ct" onclick="setType('radar',this)"><span class="ct-icon">⬡</span>Radar</div>
-      <div class="ct" onclick="setType('scatter',this)"><span class="ct-icon">⁘</span>Scatter</div>
-      <div class="ct" onclick="setType('bubble',this)"><span class="ct-icon">◉</span>Bubble</div>
-      <div class="ct" onclick="setType('polarArea',this)"><span class="ct-icon">⊛</span>Polar</div>
-      <div class="ct" onclick="setType('area',this)"><span class="ct-icon">▲</span>Area</div>
-      <div class="ct" onclick="setType('heatmap',this)"><span class="ct-icon">🔲</span>Heat</div>
-      <div class="ct" onclick="setType('treemap',this)"><span class="ct-icon">▦</span>Tree</div>
-      <div class="ct" onclick="setType('gauge',this)"><span class="ct-icon">⏱</span>Gauge</div>
+      <div class="ct active" onclick="setType('bar',this)"><span class="ct-icon">?</span>Bar</div>
+      <div class="ct" onclick="setType('line',this)"><span class="ct-icon">?</span>Line</div>
+      <div class="ct" onclick="setType('pie',this)"><span class="ct-icon">?</span>Pie</div>
+      <div class="ct" onclick="setType('doughnut',this)"><span class="ct-icon">?</span>Ring</div>
+      <div class="ct" onclick="setType('radar',this)"><span class="ct-icon">?</span>Radar</div>
+      <div class="ct" onclick="setType('scatter',this)"><span class="ct-icon">?</span>Scatter</div>
+      <div class="ct" onclick="setType('bubble',this)"><span class="ct-icon">?</span>Bubble</div>
+      <div class="ct" onclick="setType('polarArea',this)"><span class="ct-icon">?</span>Polar</div>
+      <div class="ct" onclick="setType('area',this)"><span class="ct-icon">?</span>Area</div>
+      <div class="ct" onclick="setType('heatmap',this)"><span class="ct-icon">??</span>Heat</div>
+      <div class="ct" onclick="setType('treemap',this)"><span class="ct-icon">?</span>Tree</div>
+      <div class="ct" onclick="setType('gauge',this)"><span class="ct-icon">?</span>Gauge</div>
     </div>
 
     <div class="sec">Chart Settings</div>
@@ -157,7 +184,7 @@ html{font-size:16px}body{font-family:var(--font);background:var(--bg);color:var(
     </div>
 
     <div class="import-area">
-      <div class="import-title">📂 Imported Data</div>
+      <div class="import-title">?? Imported Data</div>
       <p id="import-status" style="font-size:.72rem;color:var(--t3)">Drop a CSV file or use Import CSV button above</p>
     </div>
   </aside>
@@ -178,7 +205,7 @@ html{font-size:16px}body{font-family:var(--font);background:var(--bg);color:var(
   <span style="color:var(--acc-h);font-weight:600" id="sb-engine">Chart.js v4</span>
   <span id="sb-type" style="color:var(--t3)">bar</span>
   <span id="sb-points" style="color:var(--t4)">8 data points</span>
-  <span style="margin-left:auto;font-size:.65rem;color:var(--t4)">Real-time preview · PNG/SVG export · CSV import</span>
+  <span style="margin-left:auto;font-size:.65rem;color:var(--t4)">Real-time preview � PNG/SVG export � CSV import</span>
 </div>
 
 <footer class="seo-footer">
@@ -189,7 +216,7 @@ html{font-size:16px}body{font-family:var(--font);background:var(--bg);color:var(
     <a href="https://image.universeinvedors.tech">Image</a><a href="https://3d.universeinvedors.tech">3D</a>
     <a href="https://map.universeinvedors.tech">Maps</a><a href="https://media.universeinvedors.tech">Media</a>
   </div>
-  <span>© 2024 Universe Invedors · Chart.js · ECharts · Plotly · D3 · Free Chart Builder</span>
+  <span>� 2024 Universe Invedors � Chart.js � ECharts � Plotly � D3 � Free Chart Builder</span>
 </footer>
 <div class="toasts" id="toasts"></div>
 
@@ -233,7 +260,7 @@ function update(){
   if(engine==='dashboard'){renderDashboard();return}
   const{labels,d1,d2,d1n,d2n,c1,c2}=getData()
   g('sb-points').textContent=`${d1.length} data points`
-  g('chart-info').textContent=`${labels.length} labels · ${d2.length?2:1} dataset${d2.length?'s':''}`
+  g('chart-info').textContent=`${labels.length} labels � ${d2.length?2:1} dataset${d2.length?'s':''}`
 
   // Route to correct engine based on chart type compatibility
   const chartjsTypes=['bar','line','pie','doughnut','radar','scatter','bubble','polarArea','area']
@@ -533,7 +560,7 @@ function renderDashboard(){
   new Chart(g('dc4').getContext('2d'),{type:'radar',data:{labels,datasets:[{label:d1n,data:d1,backgroundColor:c1+'33',borderColor:c1,borderWidth:2}]},options:{...opts,maintainAspectRatio:false,scales:{}}})
 }
 
-// ── CSV IMPORT ─────────────────────────────────────────────
+// -- CSV IMPORT ---------------------------------------------
 function importCSV(file){
   if(!file) return
   const reader=new FileReader()
@@ -548,7 +575,7 @@ function importCSV(file){
     g('labels').value=labels.join(',')
     g('ds1').value=d1.join(','); if(headers[1]) g('ds1n').value=headers[1]
     g('ds2').value=d2.join(','); if(headers[2]) g('ds2n').value=headers[2]
-    g('import-status').textContent=`✅ ${file.name}: ${labels.length} rows, ${headers.length-1} series`
+    g('import-status').textContent=`? ${file.name}: ${labels.length} rows, ${headers.length-1} series`
     g('import-status').style.color='var(--green)'
     toast(`CSV imported: ${labels.length} rows`,'ok')
     update()
@@ -577,7 +604,7 @@ function pasteJSON(){
   }catch{toast('Invalid JSON','err')}
 }
 
-// ── PRESETS ─────────────────────────────────────────────
+// -- PRESETS ---------------------------------------------
 const PRESETS=[
   {title:'Monthly Sales',labels:'Jan,Feb,Mar,Apr,May,Jun',d1:'42,78,55,91,63,84',d2:'30,55,70,45,80,60',d1n:'Product A',d2n:'Product B'},
   {title:'Website Traffic',labels:'Mon,Tue,Wed,Thu,Fri,Sat,Sun',d1:'1200,1900,1500,2100,1800,900,600',d2:'800,1100,900,1400,1200,500,350',d1n:'Sessions',d2n:'Unique Users'},
@@ -622,9 +649,9 @@ update()
 </body>
 </html>
 <script>
-// GA4 Custom Events — Chart Builder
+// GA4 Custom Events � Chart Builder
 (function(){
-  // Track chart type selection — key insight: which charts are popular
+  // Track chart type selection � key insight: which charts are popular
   var _orig=window.switchChart||null;
   document.querySelectorAll('.tab,.et,[onclick*="switchChart"],[onclick*="chart"]').forEach(function(tab){
     tab.addEventListener('click',function(){
@@ -646,3 +673,26 @@ update()
   });
 })();
 </script>
+
+
+/* Chart-specific */
+.main{display:flex;flex:1;overflow:hidden}
+.sidebar{width:280px;background:var(--bg-surface);border-right:1px solid var(--border);overflow-y:auto;padding:.65rem .55rem;flex-shrink:0;display:flex;flex-direction:column;gap:.55rem}
+.sec{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-4);padding:.4rem .3rem .1rem}
+.ct-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.28rem}
+.ct{padding:.42rem .2rem;border-radius:var(--r-md);border:1px solid var(--border);background:var(--bg-card);cursor:pointer;font-size:.68rem;font-weight:600;color:var(--text-3);text-align:center;transition:all var(--t);display:flex;flex-direction:column;align-items:center;gap:.18rem}
+.ct:hover{background:var(--accent-subtle);border-color:var(--accent-border)}
+.ct.active{background:var(--accent-subtle);border-color:var(--accent-border);color:var(--accent-light)}
+.ct-icon{font-size:1rem}
+.fta{width:100%;padding:.5rem .65rem;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--r-md);color:var(--text-1);font-family:var(--font-mono);font-size:.75rem;resize:vertical;min-height:60px;outline:none;margin-bottom:.55rem;line-height:1.5}
+.fta:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,.10)}
+.ds-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:.6rem;margin-bottom:.4rem}
+.ds-header{display:flex;align-items:center;gap:.4rem;margin-bottom:.4rem}
+.ds-color{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);cursor:pointer;padding:.15rem;background:transparent;flex-shrink:0}
+.chart-area{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.chart-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:1.5rem;overflow:hidden}
+#chartjs-canvas{max-width:100%;max-height:100%}
+#echarts-div,#plotly-div{width:100%;height:100%;display:none}
+.statusbar{display:flex;align-items:center;gap:.75rem;padding:.22rem .75rem;background:var(--bg-surface);border-top:1px solid var(--border);font-size:.67rem;color:var(--text-3);flex-shrink:0}
+@media(max-width:768px){.sidebar{display:none}}
+</style>
