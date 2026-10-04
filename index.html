@@ -11,6 +11,13 @@
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any"/><meta name="theme-color" content="#090c13"/>
 <meta name="google-adsense-account" content="ca-pub-8759032363251002"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8759032363251002" crossorigin="anonymous"></script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3GH7524RVW"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-3GH7524RVW',{page_title:document.title,page_location:location.href});
+function gaEvent(action,category,label,value){gtag('event',action,{event_category:category,event_label:label,value:value});}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
@@ -614,3 +621,28 @@ update()
 </script>
 </body>
 </html>
+<script>
+// GA4 Custom Events — Chart Builder
+(function(){
+  // Track chart type selection — key insight: which charts are popular
+  var _orig=window.switchChart||null;
+  document.querySelectorAll('.tab,.et,[onclick*="switchChart"],[onclick*="chart"]').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      gaEvent('chart_type_selected','Chart Builder',this.textContent.trim());
+    });
+  });
+  // Track chart renders/updates
+  document.querySelectorAll('button').forEach(function(btn){
+    var t=btn.textContent.trim().toLowerCase();
+    if(t.includes('render')||t.includes('generat')||t.includes('update')||t.includes('build')||t.includes('creat')){
+      btn.addEventListener('click',function(){
+        var active=document.querySelector('.tab.active,.et.active');
+        gaEvent('chart_rendered','Chart Builder',active?active.textContent.trim():'unknown');
+      });
+    }
+    if(t.includes('export')||t.includes('download')||t.includes('png')){
+      btn.addEventListener('click',function(){gaEvent('chart_downloaded','Chart Builder','png');});
+    }
+  });
+})();
+</script>
